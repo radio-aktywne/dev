@@ -1,0 +1,4 @@
+services:
+  decay:
+    image: radio-aktywne/decay
+    build: "${RA_ROOT}/decay"

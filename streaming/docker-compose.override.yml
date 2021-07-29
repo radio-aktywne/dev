@@ -1,0 +1,12 @@
+services:
+  fusion:
+    image: radio-aktywne/fusion
+    extends:
+      file: docker-compose.local-fusion.yml
+      service: fusion
+
+  decay:
+    image: radio-aktywne/decay
+    extends:
+      file: docker-compose.local-decay.yml
+      service: decay
