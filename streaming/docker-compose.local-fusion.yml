@@ -1,0 +1,4 @@
+services:
+  fusion:
+    image: radio-aktywne/fusion
+    build: "${RA_ROOT}/fusion"
