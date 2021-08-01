@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  fusion:
+    image: "${FUSION_IMAGE:-ghcr.io/radio-aktywne/fusion}:${FUSION_TAG:-latest}"
+    environment:
+      - "DECAY_HOST=${DECAY_HOST:-decay}"
+      - "DECAY_PORT=${DECAY_PORT:-8000}"
+      - "DECAY_PASSWORD=${DECAY_PASSWORD:-hackme}"
+      - "DECAY_MOUNT=${DECAY_MOUNT:-radio.mp3}"

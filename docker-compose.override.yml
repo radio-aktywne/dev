@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  fusion:
+    image: "${FUSION_IMAGE:-radio-aktywne/fusion}"
+    build: "${FUSION_PATH:-./fusion/fusion}"
+
+  decay:
+    image: "${DECAY_IMAGE:-radio-aktywne/decay}"
+    build: "${DECAY_PATH:-./decay/decay}"

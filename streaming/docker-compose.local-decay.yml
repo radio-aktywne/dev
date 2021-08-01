@@ -1,4 +1,0 @@
-services:
-  decay:
-    image: radio-aktywne/decay
-    build: "${DECAY_PATH:-../../decay}"

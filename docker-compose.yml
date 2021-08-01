@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  fusion:
+    extends:
+      file: ./fusion/docker-compose.yml
+      service: fusion
+
+  decay:
+    extends:
+      file: ./decay/docker-compose.yml
+      service: decay
