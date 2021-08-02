@@ -1,0 +1,6 @@
+[submodule "decay/decay"]
+	path = decay/decay
+	url = https://github.com/radio-aktywne/decay.git
+[submodule "fusion/fusion"]
+	path = fusion/fusion
+	url = https://github.com/radio-aktywne/fusion.git

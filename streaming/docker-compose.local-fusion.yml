@@ -1,4 +1,0 @@
-services:
-  fusion:
-    image: radio-aktywne/fusion
-    build: "${FUSION_PATH:-../../fusion}"

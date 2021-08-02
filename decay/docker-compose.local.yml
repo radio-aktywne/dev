@@ -1,0 +1,6 @@
+version: "3.9"
+
+services:
+  decay:
+    image: "${DECAY_IMAGE:-radio-aktywne/decay}"
+    build: "${DECAY_PATH:-./decay/decay}"
