@@ -1,6 +1,8 @@
 [submodule "decay/decay"]
 	path = decay/decay
 	url = https://github.com/radio-aktywne/decay.git
+	update = rebase
 [submodule "fusion/fusion"]
 	path = fusion/fusion
 	url = https://github.com/radio-aktywne/fusion.git
+	update = rebase
