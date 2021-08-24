@@ -6,3 +6,6 @@
 	path = fusion/fusion
 	url = https://github.com/radio-aktywne/fusion.git
 	update = rebase
+[submodule "emission/emission"]
+	path = emission/emission
+	url = https://github.com/radio-aktywne/emission.git

@@ -1,0 +1,12 @@
+version: "3.9"
+
+services:
+  emission:
+    image: "${EMISSION_IMAGE:-ghcr.io/radio-aktywne/emission}:${EMISSION_TAG:-latest}"
+    ports:
+      - "${EMISSION_LIVE_PORT:-8000}:8000/udp"
+    environment:
+      - "EMISSION_HOST=${EMISSION_HOST:-emission}"
+      - "EMISSION_PORT=${EMISSION_PORT:-8000}"
+      - "EMISSION_PASSWORD=${EMISSION_PASSWORD:-hackme}"
+      - "EMISSION_MOUNT=${EMISSION_MOUNT:-radio.mp3}"
