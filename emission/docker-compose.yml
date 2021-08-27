@@ -5,4 +5,4 @@ services:
     image: "${EMISSION_IMAGE:-ghcr.io/radio-aktywne/emission}:${EMISSION_TAG:-latest}"
     environment:
       - "FUSION_HOST=${FUSION_HOST:-fusion}"
-      - "FUSION_LIVE_PORT=${FUSION_LIVE_PORT:-8000}"
+      - "FUSION_LIVE_PORT=${FUSION_LIVE_PORT:-9000}"
