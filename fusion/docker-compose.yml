@@ -4,7 +4,7 @@ services:
   fusion:
     image: "${FUSION_IMAGE:-ghcr.io/radio-aktywne/fusion}:${FUSION_TAG:-latest}"
     ports:
-      - "${FUSION_LIVE_PORT:-8000}:8000/udp"
+      - "${FUSION_FORWARDED_LIVE_PORT:-9000}:9000"
     environment:
       - "DECAY_HOST=${DECAY_HOST:-decay}"
       - "DECAY_PORT=${DECAY_PORT:-8000}"

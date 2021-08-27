@@ -1,6 +1,11 @@
 version: "3.9"
 
 services:
+  emission:
+    extends:
+      file: ./emission/docker-compose.yml
+      service: emission
+
   fusion:
     extends:
       file: ./fusion/docker-compose.yml
