@@ -3,6 +3,7 @@ version: "3.9"
 services:
   fusion:
     image: "${FUSION_IMAGE:-ghcr.io/radio-aktywne/fusion}:${FUSION_TAG:-latest}"
+    # todo spietras fix ports
     # ports:
     #   - "${FUSION_LIVE_PORT:-8000}:8000"
     environment:
