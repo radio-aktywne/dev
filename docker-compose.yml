@@ -5,11 +5,15 @@ services:
     extends:
       file: ./emission/docker-compose.yml
       service: emission
+    depends_on:
+      - fusion
 
   fusion:
     extends:
       file: ./fusion/docker-compose.yml
       service: fusion
+    depends_on:
+      - decay
 
   decay:
     extends:
