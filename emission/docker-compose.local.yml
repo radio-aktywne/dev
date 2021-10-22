@@ -1,6 +1,0 @@
-version: "3.9"
-
-services:
-  emission:
-    image: "${EMISSION_IMAGE:-radio-aktywne/emission}"
-    build: "${EMISSION_PATH:-./emission/emission}"
