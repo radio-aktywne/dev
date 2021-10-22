@@ -1,0 +1,10 @@
+version: "3.9"
+
+services:
+  emiweb:
+    image: "${EMIWEB_IMAGE:-ghcr.io/radio-aktywne/emiweb}:${EMIWEB_TAG:-latest}"
+    ports:
+      - "${EMIWEB_FORWARDED_PORT:-11000}:80"
+    environment:
+      - "EMIWEB_TARGET_HOST=${EMIWEB_TARGET_HOST:-localhost}"
+      - "EMIWEB_TARGET_PORT=${EMIWEB_TARGET_PORT:-10000}"
