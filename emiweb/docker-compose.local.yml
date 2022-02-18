@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   emiweb:
     image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"

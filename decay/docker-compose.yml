@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   decay:
     image: "${DECAY_IMAGE:-ghcr.io/radio-aktywne/decay}:${DECAY_TAG:-latest}"

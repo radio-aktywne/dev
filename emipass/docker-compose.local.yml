@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   emipass:
     image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
