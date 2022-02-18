@@ -2,7 +2,9 @@ services:
   emiweb:
     image: "${EMIWEB_IMAGE:-ghcr.io/radio-aktywne/emiweb}:${EMIWEB_TAG:-latest}"
     ports:
-      - "${EMIWEB_FORWARDED_PORT:-11000}:80"
+      - "${EMIWEB_FORWARDED_PORT:-11000}:11000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
     environment:
-      - "EMIWEB_TARGET_HOST=${EMIWEB_TARGET_HOST:-localhost}"
-      - "EMIWEB_TARGET_PORT=${EMIWEB_TARGET_PORT:-10000}"
+      - "EMIWEB_API_HOST=${EMIWEB_API_HOST:-host.docker.internal}"
+      - "EMIWEB_API_PORT=${EMIWEB_API_PORT:-10000}"
