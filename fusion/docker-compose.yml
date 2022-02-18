@@ -1,5 +1,3 @@
-version: "3.9"
-
 services:
   fusion:
     image: "${FUSION_IMAGE:-ghcr.io/radio-aktywne/fusion}:${FUSION_TAG:-latest}"
