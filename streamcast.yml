@@ -1,0 +1,10 @@
+services:
+  streamcast:
+    image: "${STREAMCAST_IMAGE:-ghcr.io/radio-aktywne/streamcast}:${STREAMCAST_TAG:-latest}"
+    ports:
+      - "${STREAMCAST_FORWARDED_PORT:-8000}:8000"
+    environment:
+      - "STREAMCAST_SOURCE_PASSWORD=${STREAMCAST_SOURCE_PASSWORD:-hackme}"
+      - "STREAMCAST_RELAY_PASSWORD=${STREAMCAST_RELAY_PASSWORD:-hackme}"
+      - "STREAMCAST_ADMIN_PASSWORD=${STREAMCAST_ADMIN_PASSWORD:-admin}"
+      - "STREAMCAST_HOST=${STREAMCAST_HOST:-streamcast}"

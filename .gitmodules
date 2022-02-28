@@ -1,19 +1,19 @@
-[submodule "decay"]
-path = decay
-url = https://github.com/radio-aktywne/decay.git
-update = rebase
+[submodule "streamcast"]
+	path = streamcast
+    url = https://github.com/radio-aktywne/streamcast.git
+    update = rebase
 
 [submodule "fusion"]
-path = fusion
-url = https://github.com/radio-aktywne/fusion.git
-update = rebase
+    path = fusion
+    url = https://github.com/radio-aktywne/fusion.git
+    update = rebase
 
 [submodule "emipass"]
-path = emipass
-url = https://github.com/radio-aktywne/emipass.git
-update = rebase
+    path = emipass
+    url = https://github.com/radio-aktywne/emipass.git
+    update = rebase
 
 [submodule "emiweb"]
-path = emiweb
-url = https://github.com/radio-aktywne/emiweb.git
-update = rebase
+    path = emiweb
+    url = https://github.com/radio-aktywne/emiweb.git
+    update = rebase

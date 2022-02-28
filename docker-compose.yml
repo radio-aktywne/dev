@@ -24,11 +24,11 @@ services:
     image: "${FUSION_IMAGE:-radio-aktywne/fusion}"
     build: "${FUSION_PATH:-./fusion}"
     depends_on:
-      - decay
+      - streamcast
 
-  decay:
+  streamcast:
     extends:
-      file: ./decay.yml
-      service: decay
-    image: "${DECAY_IMAGE:-radio-aktywne/decay}"
-    build: "${DECAY_PATH:-./decay}"
+      file: ./streamcast.yml
+      service: streamcast
+    image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
+    build: "${STREAMCAST_PATH:-./streamcast}"

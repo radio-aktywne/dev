@@ -32,10 +32,10 @@ There are two major ways to run the services:
   docker-compose up --build
   ```
 
-- Running selected services (e.g. `decay`, `fusion`) from upstream images:
+- Running selected services (e.g. `streamcast`, `fusion`) from upstream images:
 
   ```sh
-  docker-compose -f decay.yml -f fusion.yml up
+  docker-compose -f streamcast.yml -f fusion.yml up
   ```
 
 Note: running from local sources should only be used for local development.
