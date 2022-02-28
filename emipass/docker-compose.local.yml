@@ -1,4 +1,0 @@
-services:
-  emipass:
-    image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
-    build: "${EMIPASS_PATH:-./emipass/emipass}"

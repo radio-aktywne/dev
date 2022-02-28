@@ -1,26 +1,34 @@
 services:
   emiweb:
     extends:
-      file: ./emiweb/docker-compose.yml
+      file: ./emiweb.yml
       service: emiweb
+    image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"
+    build: "${EMIWEB_PATH:-./emiweb}"
     depends_on:
       - emipass
 
   emipass:
     extends:
-      file: ./emipass/docker-compose.yml
+      file: ./emipass.yml
       service: emipass
+    image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
+    build: "${EMIPASS_PATH:-./emipass}"
     depends_on:
       - fusion
 
   fusion:
     extends:
-      file: ./fusion/docker-compose.yml
+      file: ./fusion.yml
       service: fusion
+    image: "${FUSION_IMAGE:-radio-aktywne/fusion}"
+    build: "${FUSION_PATH:-./fusion}"
     depends_on:
       - decay
 
   decay:
     extends:
-      file: ./decay/docker-compose.yml
+      file: ./decay.yml
       service: decay
+    image: "${DECAY_IMAGE:-radio-aktywne/decay}"
+    build: "${DECAY_PATH:-./decay}"

@@ -1,4 +1,0 @@
-services:
-  emiweb:
-    image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"
-    build: "${EMIWEB_PATH:-./emiweb/emiweb}"
