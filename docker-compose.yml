@@ -6,6 +6,16 @@ services:
     image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"
     build: "${EMIWEB_PATH:-./emiweb}"
     depends_on:
+      - emigate
+
+  emigate:
+    extends:
+      file: ./emigate.yml
+      service: emigate
+    image: "${EMIGATE_IMAGE:-radio-aktywne/emigate}"
+    build: "${EMIGATE_PATH:-./emigate}"
+    depends_on:
+#      - emistream
       - emipass
 
   emipass:
@@ -14,6 +24,15 @@ services:
       service: emipass
     image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
     build: "${EMIPASS_PATH:-./emipass}"
+    depends_on:
+      - emistream
+
+  emistream:
+    extends:
+      file: ./emistream.yml
+      service: emistream
+    image: "${EMISTREAM_IMAGE:-radio-aktywne/emistream}"
+    build: "${EMISTREAM_PATH:-./emistream}"
     depends_on:
       - fusion
 

@@ -1,0 +1,16 @@
+services:
+  emigate:
+    image: "${EMIGATE_IMAGE:-ghcr.io/radio-aktywne/emigate}:${EMIGATE_TAG:-latest}"
+    ports:
+      - "${EMIGATE_PUBLISHED_PORT:-12000}:12000"
+      - "${EMIGATE_PUBLISHED_PORT:-12000}:12000/udp"
+      - "${EMIGATE_PUBLISHED_ADMIN_PORT:-12001}:12001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMIGATE_AUTHO_HOST=${EMIGATE_AUTHO_HOST:-autho}"
+      - "EMIGATE_AUTHO_PORT=${EMIGATE_AUTHO_PORT:-20000}"
+      - "EMIGATE_EMIPASS_HOST=${EMIGATE_EMIPASS_HOST:-host.docker.internal}"
+      - "EMIGATE_EMIPASS_PORT=${EMIGATE_EMIPASS_PORT:-11000}"
+      - "EMIGATE_EMISTREAM_HOST=${EMIGATE_EMISTREAM_HOST:-emistream}"
+      - "EMIGATE_EMISTREAM_PORT=${EMIGATE_EMISTREAM_PORT:-10000}"

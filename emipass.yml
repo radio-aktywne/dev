@@ -4,6 +4,6 @@ services:
     network_mode: "host"
     environment:
       - "EMIPASS_PORT=${EMIPASS_PORT:-10000}"
-      - "EMIPASS_TARGET_HOST=${EMIPASS_TARGET_HOST:-fusion}"
-      - "EMIPASS_TARGET_PORT=${EMIPASS_TARGET_PORT:-9000}"
+      - "EMIPASS_TARGET_HOST=${EMIPASS_TARGET_HOST:-localhost}"
+      - "EMIPASS_TARGET_PORT=${EMIPASS_TARGET_PORT:-10000}"
       - "EMIPASS_USE_STUN=${EMIPASS_USE_STUN:-}"

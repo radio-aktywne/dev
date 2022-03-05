@@ -1,0 +1,11 @@
+services:
+  emistream:
+    image: "${EMISTREAM_IMAGE:-ghcr.io/radio-aktywne/emistream}:${EMISTREAM_TAG:-latest}"
+    ports:
+      - "${EMISTREAM_PUBLISHED_PORT:-10000}:10000"
+      - "${EMISTREAM_PUBLISHED_PORT:-10000}:10000/udp"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMISTREAM_TARGET_HOST=${EMISTREAM_TARGET_HOST:-fusion}"
+      - "EMISTREAM_TARGET_PORT=${EMISTREAM_TARGET_PORT:-9000}"
