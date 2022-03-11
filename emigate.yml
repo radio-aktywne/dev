@@ -8,9 +8,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
-      - "EMIGATE_AUTHO_HOST=${EMIGATE_AUTHO_HOST:-autho}"
-      - "EMIGATE_AUTHO_PORT=${EMIGATE_AUTHO_PORT:-20000}"
-      - "EMIGATE_EMIPASS_HOST=${EMIGATE_EMIPASS_HOST:-host.docker.internal}"
-      - "EMIGATE_EMIPASS_PORT=${EMIGATE_EMIPASS_PORT:-11000}"
-      - "EMIGATE_EMISTREAM_HOST=${EMIGATE_EMISTREAM_HOST:-emistream}"
-      - "EMIGATE_EMISTREAM_PORT=${EMIGATE_EMISTREAM_PORT:-10000}"
+      - "EMIGATE_EMISTREAM_ADDRESS=${EMIGATE_EMISTREAM_ADDRESS:-emistream:10000}"
+      - "EMIGATE_EMISTREAM_URL=${EMIGATE_EMISTREAM_URL:-http://emistream:10000}"
+      - "EMIGATE_EMIPASS_URL=${EMIGATE_EMIPASS_URL:-http://host.docker.internal:11000}"
+      - "EMIGATE_AUTHO_URL=${EMIGATE_AUTHO_URL:-http://autho:20000}"

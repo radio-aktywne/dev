@@ -1,0 +1,11 @@
+services:
+  authe:
+    image: "${AUTHE_IMAGE:-ghcr.io/radio-aktywne/authe}:${AUTHE_TAG:-latest}"
+    ports:
+      - "${AUTHE_PUBLISHED_PORT:-21000}:21000"
+      - "${AUTHE_PUBLISHED_ADMIN_PORT:-21001}:21001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "AUTHE_WEBAUTH_PUBLIC_URL=${AUTHE_WEBAUTH_PUBLIC_URL:-http://localhost:22000}"
+      - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://localhost:22000,http://localhost:13000,http://radioaktywne.pl,http://*.radioaktywne.pl}"
