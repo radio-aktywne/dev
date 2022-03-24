@@ -23,6 +23,11 @@
     url = https://github.com/radio-aktywne/authe.git
     update = rebase
 
+[submodule "authe-db"]
+    path = authe-db
+    url = https://github.com/radio-aktywne/authe-db.git
+    update = rebase
+
 [submodule "emipass"]
     path = emipass
     url = https://github.com/radio-aktywne/emipass.git

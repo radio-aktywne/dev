@@ -7,4 +7,4 @@ services:
       - host.docker.internal:host-gateway
     environment:
       - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-http://authe:21000}"
-      - "AUTHO_WEBAUTH_PUBLIC_URL=${AUTHO_WEBAUTH_PUBLIC_URL:-http://localhost:22000}"
+      - "AUTHO_WEBAUTH_PUBLIC_URL=${AUTHO_WEBAUTH_PUBLIC_URL:-http://localhost:23000}"

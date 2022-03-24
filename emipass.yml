@@ -3,7 +3,7 @@ services:
     image: "${EMIPASS_IMAGE:-ghcr.io/radio-aktywne/emipass}:${EMIPASS_TAG:-latest}"
     network_mode: "host"
     environment:
-      - "EMIPASS_PORT=${EMIPASS_PORT:-10000}"
+      - "EMIPASS_PORT=${EMIPASS_PORT:-11000}"
       - "EMIPASS_TARGET_HOST=${EMIPASS_TARGET_HOST:-localhost}"
       - "EMIPASS_TARGET_PORT=${EMIPASS_TARGET_PORT:-10000}"
       - "EMIPASS_USE_STUN=${EMIPASS_USE_STUN:-}"

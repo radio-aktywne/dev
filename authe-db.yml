@@ -1,0 +1,10 @@
+services:
+  authe-db:
+    image: "${AUTHE_DB_IMAGE:-ghcr.io/radio-aktywne/authe-db}:${AUTHE_DB_TAG:-latest}"
+    ports:
+      - "${AUTHE_DB_PORT:-22000}:22000"
+      - "${AUTHE_DB_ADMIN_PORT:-22001}:22001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - authe-db:/app/cockroach-data

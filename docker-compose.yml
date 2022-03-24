@@ -45,6 +45,15 @@ services:
       service: authe
     image: "${AUTHE_IMAGE:-radio-aktywne/authe}"
     build: "${AUTHE_PATH:-./authe}"
+    depends_on:
+      - authe-db
+
+  authe-db:
+    extends:
+      file: ./authe-db.yml
+      service: authe-db
+    image: "${AUTHE_DB_IMAGE:-radio-aktywne/authe-db}"
+    build: "${AUTHE_DB_PATH:-./authe-db}"
 
   emipass:
     extends:
@@ -79,3 +88,6 @@ services:
       service: streamcast
     image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
     build: "${STREAMCAST_PATH:-./streamcast}"
+
+volumes:
+  authe-db:
