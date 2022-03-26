@@ -7,5 +7,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
-      - "EMISTREAM_TARGET_HOST=${EMISTREAM_TARGET_HOST:-fusion}"
-      - "EMISTREAM_TARGET_PORT=${EMISTREAM_TARGET_PORT:-9000}"
+      - "EMISTREAM_LIVE_HOST=${EMISTREAM_LIVE_HOST:-fusion}"
+      - "EMISTREAM_LIVE_PORT=${EMISTREAM_LIVE_PORT:-9000}"
+      - "EMISTREAM_RECORDING_HOST=${EMISTREAM_RECORDING_HOST:-emirecorder}"
+      - "EMISTREAM_RECORDING_PORT=${EMISTREAM_RECORDING_PORT:-31000}"

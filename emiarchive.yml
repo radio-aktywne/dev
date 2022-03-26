@@ -1,0 +1,17 @@
+services:
+  emiarchive:
+    image: "${EMIARCHIVE_IMAGE:-ghcr.io/radio-aktywne/emiarchive}:${EMIARCHIVE_TAG:-latest}"
+    ports:
+      - "${EMIARCHIVE_PORT:-30000}:30000"
+      - "${EMIARCHIVE_ADMIN_PORT:-30001}:30001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMIARCHIVE_ADMIN_USER=${EMIARCHIVE_ADMIN_USER:-admin}"
+      - "EMIARCHIVE_ADMIN_PASSWORD=${EMIARCHIVE_ADMIN_PASSWORD:-password}"
+      - "EMIARCHIVE_READONLY_USER=${EMIARCHIVE_READONLY_USER:-readonly}"
+      - "EMIARCHIVE_READONLY_PASSWORD=${EMIARCHIVE_READONLY_PASSWORD:-password}"
+      - "EMIARCHIVE_READWRITE_USER=${EMIARCHIVE_READWRITE_USER:-readwrite}"
+      - "EMIARCHIVE_READWRITE_PASSWORD=${EMIARCHIVE_READWRITE_PASSWORD:-password}"
+    volumes:
+      - emiarchive:/app/data
