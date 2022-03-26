@@ -71,7 +71,24 @@ services:
     image: "${EMISTREAM_IMAGE:-radio-aktywne/emistream}"
     build: "${EMISTREAM_PATH:-./emistream}"
     depends_on:
+      - emirecorder
       - fusion
+
+  emirecorder:
+    extends:
+      file: ./emirecorder.yml
+      service: emirecorder
+    image: "${EMIRECORDER_IMAGE:-radio-aktywne/emirecorder}"
+    build: "${EMIRECORDER_PATH:-./emirecorder}"
+    depends_on:
+      - emiarchive
+
+  emiarchive:
+    extends:
+      file: ./emiarchive.yml
+      service: emiarchive
+    image: "${EMIARCHIVE_IMAGE:-radio-aktywne/emiarchive}"
+    build: "${EMIARCHIVE_PATH:-./emiarchive}"
 
   fusion:
     extends:
@@ -91,3 +108,4 @@ services:
 
 volumes:
   authe-db:
+  emiarchive:

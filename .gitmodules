@@ -38,6 +38,16 @@
     url = https://github.com/radio-aktywne/emistream.git
     update = rebase
 
+[submodule "emirecorder"]
+    path = emirecorder
+    url = https://github.com/radio-aktywne/emirecorder.git
+    update = rebase
+
+[submodule "emiarchive"]
+    path = emiarchive
+    url = https://github.com/radio-aktywne/emiarchive.git
+    update = rebase
+
 [submodule "fusion"]
     path = fusion
     url = https://github.com/radio-aktywne/fusion.git

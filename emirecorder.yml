@@ -1,0 +1,13 @@
+services:
+  emirecorder:
+    image: "${EMIRECORDER_IMAGE:-ghcr.io/radio-aktywne/emirecorder}:${EMIRECORDER_TAG:-latest}"
+    ports:
+      - "${EMIRECORDER_PUBLISHED_PORT:-31000}:31000"
+      - "${EMIRECORDER_PUBLISHED_PORT:-31000}:31000/udp"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMIRECORDER_TARGET_HOST=${EMIRECORDER_TARGET_HOST:-emiarchive}"
+      - "EMIRECORDER_TARGET_PORT=${EMIRECORDER_TARGET_PORT:-30000}"
+      - "EMIRECORDER_TARGET_USER=${EMIRECORDER_TARGET_USER:-readwrite}"
+      - "EMIRECORDER_TARGET_PASSWORD=${EMIRECORDER_TARGET_PASSWORD:-password}"
