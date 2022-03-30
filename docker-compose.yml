@@ -64,6 +64,24 @@ services:
     depends_on:
       - emistream
 
+  emischeduler:
+    extends:
+      file: ./emischeduler.yml
+      service: emischeduler
+    image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
+    build: "${EMISCHEDULER_PATH:-./emischeduler}"
+    depends_on:
+      - emischeduler-db
+      - emistream
+      - emiarchive
+
+  emischeduler-db:
+    extends:
+      file: ./emischeduler-db.yml
+      service: emischeduler-db
+    image: "${EMISCHEDULER_DB_IMAGE:-radio-aktywne/emischeduler-db}"
+    build: "${EMISCHEDULER_DB_PATH:-./emischeduler-db}"
+
   emistream:
     extends:
       file: ./emistream.yml
@@ -108,4 +126,5 @@ services:
 
 volumes:
   authe-db:
+  emischeduler-db:
   emiarchive:
