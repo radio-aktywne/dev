@@ -1,0 +1,13 @@
+services:
+  emitimes:
+    image: "${EMITIMES_IMAGE:-ghcr.io/radio-aktywne/emitimes}:${EMITIMES_TAG:-latest}"
+    ports:
+      - "${EMITIMES_PUBLISHED_PORT:-36000}:36000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMITIMES_USER=${EMITIMES_USER:-user}"
+      - "EMITIMES_PASSWORD=${EMITIMES_PASSWORD:-password}"
+      - "EMITIMES_CALENDAR=${EMITIMES_CALENDAR:-emitimes}"
+    volumes:
+      - emitimes:/app/data

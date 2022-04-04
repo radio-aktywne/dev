@@ -43,6 +43,21 @@
     url = https://github.com/radio-aktywne/emischeduler-db.git
     update = rebase
 
+[submodule "emishows"]
+    path = emishows
+    url = https://github.com/radio-aktywne/emishows.git
+    update = rebase
+
+[submodule "emishows-db"]
+    path = emishows-db
+    url = https://github.com/radio-aktywne/emishows-db.git
+    update = rebase
+
+[submodule "emitimes"]
+    path = emitimes
+    url = https://github.com/radio-aktywne/emitimes.git
+    update = rebase
+
 [submodule "emistream"]
     path = emistream
     url = https://github.com/radio-aktywne/emistream.git

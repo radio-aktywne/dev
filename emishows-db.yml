@@ -1,0 +1,10 @@
+services:
+  emishows-db:
+    image: "${EMISHOWS_DB_IMAGE:-ghcr.io/radio-aktywne/emishows-db}:${EMISHOWS_DB_TAG:-latest}"
+    ports:
+      - "${EMISHOWS_PUBLISHED_DB_PORT:-34000}:34000"
+      - "${EMISHOWS_PUBLISHED_DB_ADMIN_PORT:-34001}:34001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    volumes:
+      - emishows-db:/app/cockroach-data

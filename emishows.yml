@@ -1,0 +1,15 @@
+services:
+  emishows:
+    image: "${EMISHOWS_IMAGE:-ghcr.io/radio-aktywne/emishows}:${EMISHOWS_TAG:-latest}"
+    ports:
+      - "${EMISHOWS_PUBLISHED_PORT:-35000}:35000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "EMISHOWS_DB_HOST=${EMISHOWS_DB_HOST:-emishows-db}"
+      - "EMISHOWS_DB_PORT=${EMISHOWS_DB_PORT:-34000}"
+      - "EMISHOWS_EMITIMES_HOST=${EMISHOWS_EMITIMES_HOST:-emitimes}"
+      - "EMISHOWS_EMITIMES_PORT=${EMISHOWS_EMITIMES_PORT:-36000}"
+      - "EMISHOWS_EMITIMES_USER=${EMISHOWS_EMITIMES_USER:-user}"
+      - "EMISHOWS_EMITIMES_PASSWORD=${EMISHOWS_EMITIMES_PASSWORD:-password}"
+      - "EMISHOWS_EMITIMES_CALENDAR=${EMISHOWS_EMITIMES_CALENDAR:-emitimes}"
