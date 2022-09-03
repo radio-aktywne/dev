@@ -9,4 +9,4 @@ services:
     environment:
       - "AUTHE_DB_ADDRESS=${AUTHE_DB_ADDRESS:-authe-db:22000}"
       - "AUTHE_WEBAUTH_PUBLIC_URL=${AUTHE_WEBAUTH_PUBLIC_URL:-http://localhost:23000}"
-      - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://localhost:23000,http://localhost:13000,http://radioaktywne.pl,http://*.radioaktywne.pl}"
+      - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://localhost:23000,http://localhost:13000,http://localhost:12000,http://localhost:12001,http://radioaktywne.pl,http://*.radioaktywne.pl}"
