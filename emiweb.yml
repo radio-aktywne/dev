@@ -7,5 +7,5 @@ services:
       - host.docker.internal:host-gateway
     environment:
       - "EMIWEB_EMIGATE_URL=${EMIWEB_EMIGATE_URL:-http://emigate:12000}"
-      - "EMIWEB_WEBAUTH_URL=${EMIWEB_WEBAUTH_URL:-http://webauth:23000}"
-      - "EMIWEB_WEBAUTH_PUBLIC_URL=${EMIWEB_WEBAUTH_PUBLIC_URL:-http://localhost:23000}"
+      - "EMIWEB_AUTHGATE_URL=${EMIWEB_AUTHGATE_URL:-http://authgate:20000}"
+      - "EMIWEB_WEBAUTH_PUBLIC_URL=${EMIWEB_WEBAUTH_PUBLIC_URL:-http://localhost:21000}"

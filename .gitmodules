@@ -3,19 +3,24 @@
     url = https://github.com/radio-aktywne/emiweb.git
     update = rebase
 
+[submodule "webauth"]
+    path = webauth
+    url = https://github.com/radio-aktywne/webauth.git
+    update = rebase
+
 [submodule "emigate"]
     path = emigate
     url = https://github.com/radio-aktywne/emigate.git
     update = rebase
 
+[submodule "authgate"]
+    path = authgate
+    url = https://github.com/radio-aktywne/authgate.git
+    update = rebase
+
 [submodule "autho"]
     path = autho
     url = https://github.com/radio-aktywne/autho.git
-    update = rebase
-
-[submodule "webauth"]
-    path = webauth
-    url = https://github.com/radio-aktywne/webauth.git
     update = rebase
 
 [submodule "authe"]

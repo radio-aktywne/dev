@@ -1,0 +1,11 @@
+services:
+  authgate:
+    image: "${AUTHGATE_IMAGE:-ghcr.io/radio-aktywne/authgate}:${AUTHGATE_TAG:-latest}"
+    ports:
+      - "${AUTHGATE_PUBLISHED_PORT:-20000}:20000"
+      - "${AUTHGATE_PUBLISHED_ADMIN_PORT:-20001}:20001"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "AUTHGATE_AUTHE_URL=${AUTHGATE_AUTHE_URL:-http://authe:23000}"
+      - "AUTHGATE_AUTHO_URL=${AUTHGATE_AUTHO_URL:-http://autho:24000}"

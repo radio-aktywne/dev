@@ -2,8 +2,8 @@ services:
   webauth:
     image: "${WEBAUTH_IMAGE:-ghcr.io/radio-aktywne/webauth}:${WEBAUTH_TAG:-latest}"
     ports:
-      - "${WEBAUTH_PUBLISHED_PORT:-23000}:23000"
+      - "${WEBAUTH_PUBLISHED_PORT:-21000}:21000"
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
-      - "WEBAUTH_AUTHE_URL=${WEBAUTH_AUTHE_URL:-http://authe:21000}"
+      - "WEBAUTH_AUTHGATE_URL=${WEBAUTH_AUTHGATE_URL:-http://authgate:20000}"

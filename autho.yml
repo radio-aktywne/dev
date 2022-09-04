@@ -2,9 +2,9 @@ services:
   autho:
     image: "${AUTHO_IMAGE:-ghcr.io/radio-aktywne/autho}:${AUTHO_TAG:-latest}"
     ports:
-      - "${AUTHO_PUBLISHED_PORT:-20000}:20000"
+      - "${AUTHO_PUBLISHED_PORT:-24000}:24000"
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
-      - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-http://authe:21000}"
-      - "AUTHO_WEBAUTH_PUBLIC_URL=${AUTHO_WEBAUTH_PUBLIC_URL:-http://localhost:23000}"
+      - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-http://authe:23000}"
+      - "AUTHO_WEBAUTH_PUBLIC_URL=${AUTHO_WEBAUTH_PUBLIC_URL:-http://localhost:21000}"

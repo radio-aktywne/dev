@@ -7,7 +7,17 @@ services:
     build: "${EMIWEB_PATH:-./emiweb}"
     depends_on:
       - webauth
+      - authgate
       - emigate
+
+  webauth:
+    extends:
+      file: ./webauth.yml
+      service: webauth
+    image: "${WEBAUTH_IMAGE:-radio-aktywne/webauth}"
+    build: "${WEBAUTH_PATH:-./webauth}"
+    depends_on:
+      - authgate
 
   emigate:
     extends:
@@ -16,10 +26,20 @@ services:
     image: "${EMIGATE_IMAGE:-radio-aktywne/emigate}"
     build: "${EMIGATE_PATH:-./emigate}"
     depends_on:
-      - autho
+      - authgate
       - emishows
       - emistream
       - emipass
+
+  authgate:
+    extends:
+      file: ./authgate.yml
+      service: authgate
+    image: "${AUTHGATE_IMAGE:-radio-aktywne/authgate}"
+    build: "${AUTHGATE_PATH:-./authgate}"
+    depends_on:
+      - authe
+      - autho
 
   autho:
     extends:
@@ -27,16 +47,6 @@ services:
       service: autho
     image: "${AUTHO_IMAGE:-radio-aktywne/autho}"
     build: "${AUTHO_PATH:-./autho}"
-    depends_on:
-      - authe
-      - webauth
-
-  webauth:
-    extends:
-      file: ./webauth.yml
-      service: webauth
-    image: "${WEBAUTH_IMAGE:-radio-aktywne/webauth}"
-    build: "${WEBAUTH_PATH:-./webauth}"
     depends_on:
       - authe
 
