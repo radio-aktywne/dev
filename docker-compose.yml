@@ -160,9 +160,37 @@ services:
     image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
     build: "${STREAMCAST_PATH:-./streamcast}"
 
+  # utility services below
+
+  proxy:
+    image: traefik:v2.8.4
+    ports:
+      - "80:80"
+      - "443:443"
+    labels:
+      - "traefik.enable=true"
+    environment:
+      - "DOMAIN=${DOMAIN:-traefik.me}"
+      - "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_TLS_DOMAINS_0_MAIN=${DOMAIN:-traefik.me}"
+      - "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_TLS_DOMAINS_0_SANS=*.${DOMAIN:-traefik.me}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./.proxy/:/etc/traefik/
+      - certs:/etc/traefik/ssl/
+    depends_on:
+      - certs
+
+  certs:
+    image: alpine:3.16.2
+    entrypoint: /entrypoint.sh
+    volumes:
+      - ./.certs/entrypoint.sh:/entrypoint.sh
+      - certs:/etc/my-certs/ssl/
+
 volumes:
   authe-db:
   emischeduler-db:
   emishows-db:
   emitimes:
   emiarchive:
+  certs:

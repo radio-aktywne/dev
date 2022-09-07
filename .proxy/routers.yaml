@@ -1,0 +1,6 @@
+http:
+  routers:
+    api:
+      rule: "HostRegexp(`{prefix:(.*\\.)?}{{ env "DOMAIN" | default "localhost" }}`)"
+      service: api@internal
+      priority: 1

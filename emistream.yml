@@ -6,6 +6,11 @@ services:
       - "${EMISTREAM_PUBLISHED_PORT:-10000}:10000/udp"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.emistream.rule=HostRegexp(`emistream{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emistream.service=emistream"
+      - "traefik.http.services.emistream.loadbalancer.server.port=10000"
     environment:
       - "EMISTREAM_LIVE_HOST=${EMISTREAM_LIVE_HOST:-fusion}"
       - "EMISTREAM_LIVE_PORT=${EMISTREAM_LIVE_PORT:-9000}"

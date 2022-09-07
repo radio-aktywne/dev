@@ -6,5 +6,13 @@ services:
       - "${AUTHE_PUBLISHED_DB_ADMIN_PORT:-22001}:22001"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authe-db.rule=HostRegexp(`authe-db{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe-db.service=authe-db"
+      - "traefik.http.services.authe-db.loadbalancer.server.port=22000"
+      - "traefik.http.routers.authe-db-admin.rule=HostRegexp(`authe-db-admin{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe-db-admin.service=authe-db-admin"
+      - "traefik.http.services.authe-db-admin.loadbalancer.server.port=22001"
     volumes:
       - authe-db:/app/cockroach-data

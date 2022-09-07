@@ -5,6 +5,11 @@ services:
       - "${STREAMCAST_PUBLISHED_PORT:-8000}:8000"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.streamcast.rule=HostRegexp(`streamcast{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.streamcast.service=streamcast"
+      - "traefik.http.services.streamcast.loadbalancer.server.port=8000"
     environment:
       - "STREAMCAST_SOURCE_PASSWORD=${STREAMCAST_SOURCE_PASSWORD:-hackme}"
       - "STREAMCAST_RELAY_PASSWORD=${STREAMCAST_RELAY_PASSWORD:-hackme}"

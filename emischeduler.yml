@@ -2,9 +2,14 @@ services:
   emischeduler:
     image: "${EMISCHEDULER_IMAGE:-ghcr.io/radio-aktywne/emischeduler}:${EMISCHEDULER_TAG:-latest}"
     ports:
-      - "${EMISCHEDULER_PUBLISHED_ADMIN_PORT:-33000}:33000"
+      - "${EMISCHEDULER_PUBLISHED_PORT:-33000}:33000"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.emischeduler.rule=HostRegexp(`emischeduler{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emischeduler.service=emischeduler"
+      - "traefik.http.services.emischeduler.loadbalancer.server.port=33000"
     environment:
       - "EMISCHEDULER_DB_HOST=${EMISCHEDULER_DB_HOST:-emischeduler-db}"
       - "EMISCHEDULER_DB_PORT=${EMISCHEDULER_DB_PORT:-32000}"

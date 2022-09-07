@@ -3,9 +3,15 @@ services:
     image: "${AUTHGATE_IMAGE:-ghcr.io/radio-aktywne/authgate}:${AUTHGATE_TAG:-latest}"
     ports:
       - "${AUTHGATE_PUBLISHED_PORT:-20000}:20000"
-      - "${AUTHGATE_PUBLISHED_ADMIN_PORT:-20001}:20001"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authgate.rule=HostRegexp(`authgate{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authgate.service=authgate"
+      - "traefik.http.services.authgate.loadbalancer.server.port=20000"
     environment:
+      - "AUTHGATE_WEBAUTH_PUBLIC_URL=${AUTHGATE_WEBAUTH_PUBLIC_URL:-https://webauth.traefik.me}"
       - "AUTHGATE_AUTHE_URL=${AUTHGATE_AUTHE_URL:-http://authe:23000}"
       - "AUTHGATE_AUTHO_URL=${AUTHGATE_AUTHO_URL:-http://autho:24000}"
+      - "AUTHGATE_TRUSTED_IPS=${AUTHGATE_TRUSTED_IPS:-172.0.0.0/8,192.168.0.0/16,127.0.0.1}"

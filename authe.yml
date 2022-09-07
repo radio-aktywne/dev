@@ -6,7 +6,16 @@ services:
       - "${AUTHE_PUBLISHED_ADMIN_PORT:-23001}:23001"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.authe.rule=HostRegexp(`authe{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe.service=authe"
+      - "traefik.http.services.authe.loadbalancer.server.port=23000"
+      - "traefik.http.routers.authe-admin.rule=HostRegexp(`authe-admin{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe-admin.service=authe-admin"
+      - "traefik.http.services.authe-admin.loadbalancer.server.port=23001"
     environment:
       - "AUTHE_DB_ADDRESS=${AUTHE_DB_ADDRESS:-authe-db:22000}"
-      - "AUTHE_WEBAUTH_PUBLIC_URL=${AUTHE_WEBAUTH_PUBLIC_URL:-http://localhost:21000}"
-      - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://localhost:21000,http://localhost:20000,http://localhost:20001,http://localhost:13000,http://localhost:12000,http://localhost:12001,http://radioaktywne.pl,http://*.radioaktywne.pl}"
+      - "AUTHE_AUTHGATE_PUBLIC_URL=${AUTHE_AUTHGATE_PUBLIC_URL:-https://authgate.traefik.me}"
+      - "AUTHE_COOKIE_DOMAIN=${AUTHE_COOKIE_DOMAIN:-traefik.me}"
+      - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://*.traefik.me,https://*.traefik.me}"

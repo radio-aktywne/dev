@@ -5,6 +5,11 @@ services:
       - "${AUTHO_PUBLISHED_PORT:-24000}:24000"
     extra_hosts:
       - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.autho.rule=HostRegexp(`autho{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.autho.service=autho"
+      - "traefik.http.services.autho.loadbalancer.server.port=24000"
     environment:
       - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-http://authe:23000}"
-      - "AUTHO_WEBAUTH_PUBLIC_URL=${AUTHO_WEBAUTH_PUBLIC_URL:-http://localhost:21000}"
+      - "AUTHO_AUTHGATE_PUBLIC_URL=${AUTHO_AUTHGATE_PUBLIC_URL:-https://authgate.traefik.me}"

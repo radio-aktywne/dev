@@ -2,6 +2,11 @@ services:
   emipass:
     image: "${EMIPASS_IMAGE:-ghcr.io/radio-aktywne/emipass}:${EMIPASS_TAG:-latest}"
     network_mode: "host"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.emipass.rule=HostRegexp(`emipass{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emipass.service=emipass"
+      - "traefik.http.services.emipass.loadbalancer.server.port=11000"
     environment:
       - "EMIPASS_PORT=${EMIPASS_PORT:-11000}"
       - "EMIPASS_TARGET_HOST=${EMIPASS_TARGET_HOST:-localhost}"

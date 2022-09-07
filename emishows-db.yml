@@ -4,6 +4,14 @@ services:
     ports:
       - "${EMISHOWS_PUBLISHED_DB_PORT:-34000}:34000"
       - "${EMISHOWS_PUBLISHED_DB_ADMIN_PORT:-34001}:34001"
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.emishows-db.rule=HostRegexp(`emishows-db{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emishows-db.service=emishows-db"
+      - "traefik.http.services.emishows-db.loadbalancer.server.port=34000"
+      - "traefik.http.routers.emishows-db-admin.rule=HostRegexp(`emishows-db-admin{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emishows-db-admin.service=emishows-db-admin"
+      - "traefik.http.services.emishows-db-admin.loadbalancer.server.port=34001"
     extra_hosts:
       - host.docker.internal:host-gateway
     volumes:
