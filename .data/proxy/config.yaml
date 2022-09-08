@@ -1,0 +1,147 @@
+http:
+  serversTransports:
+    authgate:
+      serverName: authgate
+    autho:
+      serverName: autho
+    authe:
+      serverName: authe
+    authe-admin:
+      serverName: authe
+    authe-db-admin:
+      serverName: authe-db
+    emishows-db-admin:
+      serverName: emishows-db
+  services:
+    emiweb:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIWEB_URL" | default "http://emiweb:13000" }}"
+    webauth:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_WEBAUTH_URL" | default "http://webauth:21000" }}"
+    emigate:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIGATE_URL" | default "http://emigate:12000" }}"
+    authgate:
+      loadBalancer:
+        serversTransport: authgate
+        servers:
+          - url: "{{ env "PROXY_AUTHGATE_URL" | default "https://authgate:20000" }}"
+    autho:
+      loadBalancer:
+        serversTransport: autho
+        servers:
+          - url: "{{ env "PROXY_AUTHO_URL" | default "https://autho:24000" }}"
+    authe:
+      loadBalancer:
+        serversTransport: authe
+        servers:
+          - url: "{{ env "PROXY_AUTHE_URL" | default "https://authe:23000" }}"
+    authe-db-admin:
+      loadBalancer:
+        serversTransport: authe-db-admin
+        servers:
+          - url: "{{ env "PROXY_AUTHE_DB_ADMIN_URL" | default "https://authe-db:22001" }}"
+    emipass:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIPASS_URL" | default "http://emipass:11000" }}"
+    emischeduler:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMISCHEDULER_URL" | default "http://emischeduler:33000" }}"
+    emischeduler-db:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMISCHEDULER_DB_URL" | default "http://emischeduler-db:32000" }}"
+    emishows:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMISHOWS_URL" | default "http://emishows:35000" }}"
+    emishows-db-admin:
+      loadBalancer:
+        serversTransport: emishows-db-admin
+        servers:
+          - url: "{{ env "PROXY_EMISHOWS_DB_URL" | default "https://emishows-db:34001" }}"
+    emitimes:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMITIMES_URL" | default "http://emitimes:36000" }}"
+    emistream:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMISTREAM_URL" | default "http://emistream:10000" }}"
+    emirecorder:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIRECORDER_URL" | default "http://emirecorder:31000" }}"
+    emiarchive:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIARCHIVE_URL" | default "http://emiarchive:30000" }}"
+    emiarchive-admin:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_EMIARCHIVE_URL" | default "http://emiarchive:30001" }}"
+    streamcast:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_STREAMCAST_URL" | default "http://streamcast:8000" }}"
+  routers:
+    emiweb:
+      rule: "HostRegexp(`emiweb{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emiweb
+    webauth:
+      rule: "HostRegexp(`webauth{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: webauth
+    emigate:
+      rule: "HostRegexp(`emigate{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emigate
+    authgate:
+      rule: "HostRegexp(`authgate{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: authgate
+    autho:
+      rule: "HostRegexp(`autho{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: autho
+    authe:
+      rule: "HostRegexp(`authe{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: authe
+    authe-db-admin:
+      rule: "HostRegexp(`authe-db-admin{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: authe-db-admin
+    emipass:
+      rule: "HostRegexp(`emipass{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emipass
+    emischeduler:
+      rule: "HostRegexp(`emischeduler{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emischeduler
+    emischeduler-db:
+      rule: "HostRegexp(`emischeduler-db{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emischeduler-db
+    emishows:
+      rule: "HostRegexp(`emishows{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emishows
+    emishows-db-admin:
+      rule: "HostRegexp(`emishows-db-admin{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emishows-db-admin
+    emitimes:
+      rule: "HostRegexp(`emitimes{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emitimes
+    emistream:
+      rule: "HostRegexp(`emistream{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emistream
+    emirecorder:
+      rule: "HostRegexp(`emirecorder{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emirecorder
+    emiarchive:
+      rule: "HostRegexp(`emiarchive{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emiarchive
+    emiarchive-admin:
+      rule: "HostRegexp(`emiarchive-admin{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: emiarchive-admin
+    streamcast:
+      rule: "HostRegexp(`streamcast{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: streamcast

@@ -1,9 +1,0 @@
-tls:
-  stores:
-    default:
-      defaultCertificate:
-        certFile: /etc/certs/frontend/cert.pem
-        keyFile: /etc/certs/frontend/key.pem
-  certificates:
-    - certFile: /etc/certs/frontend/cert.pem
-      keyFile: /etc/certs/frontend/key.pem

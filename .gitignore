@@ -4,6 +4,6 @@
 
 .idea/
 
-.data/ca/**
+.data/certifier/ca/**
 
 !.gitkeep

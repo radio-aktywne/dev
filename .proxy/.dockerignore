@@ -1,6 +1,0 @@
-**
-!entrypoint.sh
-!routers.yaml
-!tls.yaml
-!traefik.yaml
-!transport.yaml

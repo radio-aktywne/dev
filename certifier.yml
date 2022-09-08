@@ -7,8 +7,7 @@ services:
       -C /etc/certifier/ca/cert.pem 
       -K /etc/certifier/ca/key.pem
     volumes:
-      - ./.data/certs.yaml:/etc/certifier/config.yaml
-      - ./.data/ca/:/etc/certifier/ca/
+      - ./.data/certifier/:/etc/certifier/
       - webauth-certs:/etc/certs/webauth/
       - emigate-backend-certs:/etc/certs/emigate-backend/
       - authgate-frontend-certs:/etc/certs/authgate-frontend/

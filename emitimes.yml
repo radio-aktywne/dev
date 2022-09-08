@@ -5,11 +5,6 @@ services:
       - "${EMITIMES_PUBLISHED_PORT:-36000}:36000"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.emitimes.rule=HostRegexp(`emitimes{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.emitimes.service=emitimes"
-      - "traefik.http.services.emitimes.loadbalancer.server.port=36000"
     environment:
       - "EMITIMES_USER=${EMITIMES_USER:-user}"
       - "EMITIMES_PASSWORD=${EMITIMES_PASSWORD:-password}"

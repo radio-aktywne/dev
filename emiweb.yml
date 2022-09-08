@@ -5,11 +5,6 @@ services:
       - "${EMIWEB_PUBLISHED_PORT:-13000}:13000"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.emiweb.rule=HostRegexp(`emiweb{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.emiweb.service=emiweb"
-      - "traefik.http.services.emiweb.loadbalancer.server.port=13000"
     environment:
       - "EMIWEB_EMIGATE_URL=${EMIWEB_EMIGATE_URL:-http://emigate:12000}"
       - "EMIWEB_COOKIE_DOMAIN=${EMIWEB_COOKIE_DOMAIN:-traefik.me}"

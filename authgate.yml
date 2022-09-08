@@ -5,13 +5,6 @@ services:
       - "${AUTHGATE_PUBLISHED_PORT:-20000}:20000"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.authgate.rule=HostRegexp(`authgate{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.authgate.service=authgate"
-      - "traefik.http.services.authgate.loadbalancer.server.port=20000"
-      - "traefik.http.services.authgate.loadbalancer.server.scheme=https"
-      - "traefik.http.services.authgate.loadbalancer.serverstransport=authgate@file"
     environment:
       - "AUTHGATE_WEBAUTH_PUBLIC_URL=${AUTHGATE_WEBAUTH_PUBLIC_URL:-https://webauth.traefik.me}"
       - "AUTHGATE_AUTHE_URL=${AUTHGATE_AUTHE_URL:-https://authe:23000}"

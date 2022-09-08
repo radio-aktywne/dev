@@ -6,11 +6,6 @@ services:
       - "${EMIGATE_PUBLISHED_PORT:-12000}:12000/udp"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.emigate.rule=HostRegexp(`emigate{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.emigate.service=emigate"
-      - "traefik.http.services.emigate.loadbalancer.server.port=12000"
     environment:
       - "EMIGATE_EMISTREAM_ADDRESS=${EMIGATE_EMISTREAM_ADDRESS:-emistream:10000}"
       - "EMIGATE_EMISTREAM_URL=${EMIGATE_EMISTREAM_URL:-http://emistream:10000}"

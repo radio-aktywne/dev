@@ -6,13 +6,6 @@ services:
       - "${AUTHE_DB_PUBLISHED_ADMIN_PORT:-22001}:22001"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.authe-db-admin.rule=HostRegexp(`authe-db-admin{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.authe-db-admin.service=authe-db-admin"
-      - "traefik.http.services.authe-db-admin.loadbalancer.server.port=22001"
-      - "traefik.http.services.authe-db-admin.loadbalancer.server.scheme=https"
-      - "traefik.http.services.authe-db-admin.loadbalancer.serverstransport=authe-db-admin@file"
     environment:
       - "AUTHE_DB_PASSWORD=${AUTHE_DB_PASSWORD:-password}"
     volumes:

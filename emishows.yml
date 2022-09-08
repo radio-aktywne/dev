@@ -5,11 +5,6 @@ services:
       - "${EMISHOWS_PUBLISHED_PORT:-35000}:35000"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.emishows.rule=HostRegexp(`emishows{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.emishows.service=emishows"
-      - "traefik.http.services.emishows.loadbalancer.server.port=35000"
     environment:
       - "EMISHOWS_DB_HOST=${EMISHOWS_DB_HOST:-emishows-db}"
       - "EMISHOWS_DB_PORT=${EMISHOWS_DB_PORT:-34000}"

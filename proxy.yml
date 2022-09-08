@@ -1,0 +1,35 @@
+services:
+  proxy:
+    image: "${PROXY_IMAGE:-ghcr.io/radio-aktywne/proxy}:${PROXY_TAG:-latest}"
+    ports:
+      - "80:80"
+      - "443:443"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    labels:
+      - "traefik.enable=true"
+    environment:
+      - "PROXY_DOMAIN=${PROXY_DOMAIN:-traefik.me}"
+      - "PROXY_EMIWEB_URL=${PROXY_EMIWEB_URL:-http://emiweb:13000}"
+      - "PROXY_WEBAUTH_URL=${PROXY_WEBAUTH_URL:-http://webauth:21000}"
+      - "PROXY_EMIGATE_URL=${PROXY_EMIGATE_URL:-http://emigate:12000}"
+      - "PROXY_AUTHGATE_URL=${PROXY_AUTHGATE_URL:-https://authgate:20000}"
+      - "PROXY_AUTHO_URL=${PROXY_AUTHO_URL:-https://autho:24000}"
+      - "PROXY_AUTHE_URL=${PROXY_AUTHE_URL:-https://authe:23000}"
+      - "PROXY_AUTHE_DB_ADMIN_URL=${PROXY_AUTHE_DB_ADMIN_URL:-https://authe-db:22001}"
+      - "PROXY_EMIPASS_URL=${PROXY_EMIPASS_URL:-http://emipass:11000}"
+      - "PROXY_EMISCHEDULER_URL=${PROXY_EMISCHEDULER_URL:-http://emischeduler:33000}"
+      - "PROXY_EMISCHEDULER_DB_URL=${PROXY_EMISCHEDULER_DB_URL:-http://emischeduler-db:32000}"
+      - "PROXY_EMISHOWS_URL=${PROXY_EMISHOWS_URL:-http://emishows:35000}"
+      - "PROXY_EMISHOWS_DB_ADMIN_URL=${PROXY_EMISHOWS_DB_ADMIN_URL:-https://emishows-db:34001}"
+      - "PROXY_EMITIMES_URL=${PROXY_EMITIMES_URL:-http://emitimes:36000}"
+      - "PROXY_EMISTREAM_URL=${PROXY_EMISTREAM_URL:-http://emistream:10000}"
+      - "PROXY_EMIRECORDER_URL=${PROXY_EMIRECORDER_URL:-http://emirecorder:31000}"
+      - "PROXY_EMIARCHIVE_URL=${PROXY_EMIARCHIVE_URL:-http://emiarchive:30000}"
+      - "PROXY_EMIARCHIVE_ADMIN_URL=${PROXY_EMIARCHIVE_ADMIN_URL:-http://emiarchive-db:30001}"
+      - "PROXY_STREAMCAST_URL=${PROXY_STREAMCAST_URL:-http://streamcast:8000}"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - ./.data/proxy/config.yaml:/app/conf/config.yaml
+      - proxy-frontend-certs:/etc/certs/frontend/
+      - proxy-backend-certs:/etc/certs/backend/

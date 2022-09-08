@@ -5,11 +5,6 @@ services:
       - "${WEBAUTH_PUBLISHED_PORT:-21000}:21000"
     extra_hosts:
       - host.docker.internal:host-gateway
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.webauth.rule=HostRegexp(`webauth{suffix:.*}.${DOMAIN:-traefik.me}`)"
-      - "traefik.http.routers.webauth.service=webauth"
-      - "traefik.http.services.webauth.loadbalancer.server.port=21000"
     environment:
       - "WEBAUTH_AUTHGATE_URL=${WEBAUTH_AUTHGATE_URL:-https://authgate:20000}"
       - "WEBAUTH_COOKIE_DOMAIN=${WEBAUTH_COOKIE_DOMAIN:-traefik.me}"
