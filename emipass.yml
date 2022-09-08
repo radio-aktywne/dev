@@ -4,7 +4,7 @@ services:
     network_mode: "host"
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emipass.rule=HostRegexp(`emipass{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emipass.rule=HostRegexp(`emipass{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emipass.service=emipass"
       - "traefik.http.services.emipass.loadbalancer.server.port=11000"
     environment:

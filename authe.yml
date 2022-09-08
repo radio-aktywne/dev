@@ -8,12 +8,12 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.authe.rule=HostRegexp(`authe{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe.rule=HostRegexp(`authe{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.authe.service=authe"
       - "traefik.http.services.authe.loadbalancer.server.port=23000"
       - "traefik.http.services.authe.loadbalancer.server.scheme=https"
       - "traefik.http.services.authe.loadbalancer.serverstransport=authe@file"
-      - "traefik.http.routers.authe-admin.rule=HostRegexp(`authe-admin{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.authe-admin.rule=HostRegexp(`authe-admin{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.authe-admin.service=authe-admin"
       - "traefik.http.services.authe-admin.loadbalancer.server.port=23001"
       - "traefik.http.services.authe-admin.loadbalancer.server.scheme=https"

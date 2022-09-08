@@ -82,48 +82,48 @@ services:
     depends_on:
       - emistream
 
-  emischeduler:
-    extends:
-      file: ./emischeduler.yml
-      service: emischeduler
-    image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
-    build: "${EMISCHEDULER_PATH:-./emischeduler}"
-    depends_on:
-      - emischeduler-db
-      - emishows
-      - emistream
-      - emiarchive
-
-  emischeduler-db:
-    extends:
-      file: ./emischeduler-db.yml
-      service: emischeduler-db
-    image: "${EMISCHEDULER_DB_IMAGE:-radio-aktywne/emischeduler-db}"
-    build: "${EMISCHEDULER_DB_PATH:-./emischeduler-db}"
-
-  emishows:
-    extends:
-      file: ./emishows.yml
-      service: emishows
-    image: "${EMISHOWS_IMAGE:-radio-aktywne/emishows}"
-    build: "${EMISHOWS_PATH:-./emishows}"
-    depends_on:
-      - emishows-db
-      - emitimes
-
-  emishows-db:
-    extends:
-      file: ./emishows-db.yml
-      service: emishows-db
-    image: "${EMISHOWS_DB_IMAGE:-radio-aktywne/emishows-db}"
-    build: "${EMISHOWS_DB_PATH:-./emishows-db}"
-
-  emitimes:
-    extends:
-      file: ./emitimes.yml
-      service: emitimes
-    image: "${EMITIMES_IMAGE:-radio-aktywne/emitimes}"
-    build: "${EMITIMES_PATH:-./emitimes}"
+#  emischeduler:
+#    extends:
+#      file: ./emischeduler.yml
+#      service: emischeduler
+#    image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
+#    build: "${EMISCHEDULER_PATH:-./emischeduler}"
+#    depends_on:
+#      - emischeduler-db
+#      - emishows
+#      - emistream
+#      - emiarchive
+#
+#  emischeduler-db:
+#    extends:
+#      file: ./emischeduler-db.yml
+#      service: emischeduler-db
+#    image: "${EMISCHEDULER_DB_IMAGE:-radio-aktywne/emischeduler-db}"
+#    build: "${EMISCHEDULER_DB_PATH:-./emischeduler-db}"
+#
+#  emishows:
+#    extends:
+#      file: ./emishows.yml
+#      service: emishows
+#    image: "${EMISHOWS_IMAGE:-radio-aktywne/emishows}"
+#    build: "${EMISHOWS_PATH:-./emishows}"
+#    depends_on:
+#      - emishows-db
+#      - emitimes
+#
+#  emishows-db:
+#    extends:
+#      file: ./emishows-db.yml
+#      service: emishows-db
+#    image: "${EMISHOWS_DB_IMAGE:-radio-aktywne/emishows-db}"
+#    build: "${EMISHOWS_DB_PATH:-./emishows-db}"
+#
+#  emitimes:
+#    extends:
+#      file: ./emitimes.yml
+#      service: emitimes
+#    image: "${EMITIMES_IMAGE:-radio-aktywne/emitimes}"
+#    build: "${EMITIMES_PATH:-./emitimes}"
 
   emistream:
     extends:
@@ -135,21 +135,21 @@ services:
       - emirecorder
       - fusion
 
-  emirecorder:
-    extends:
-      file: ./emirecorder.yml
-      service: emirecorder
-    image: "${EMIRECORDER_IMAGE:-radio-aktywne/emirecorder}"
-    build: "${EMIRECORDER_PATH:-./emirecorder}"
-    depends_on:
-      - emiarchive
-
-  emiarchive:
-    extends:
-      file: ./emiarchive.yml
-      service: emiarchive
-    image: "${EMIARCHIVE_IMAGE:-radio-aktywne/emiarchive}"
-    build: "${EMIARCHIVE_PATH:-./emiarchive}"
+#  emirecorder:
+#    extends:
+#      file: ./emirecorder.yml
+#      service: emirecorder
+#    image: "${EMIRECORDER_IMAGE:-radio-aktywne/emirecorder}"
+#    build: "${EMIRECORDER_PATH:-./emirecorder}"
+#    depends_on:
+#      - emiarchive
+#
+#  emiarchive:
+#    extends:
+#      file: ./emiarchive.yml
+#      service: emiarchive
+#    image: "${EMIARCHIVE_IMAGE:-radio-aktywne/emiarchive}"
+#    build: "${EMIARCHIVE_PATH:-./emiarchive}"
 
   fusion:
     extends:

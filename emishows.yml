@@ -7,7 +7,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emishows.rule=HostRegexp(`emishows{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emishows.rule=HostRegexp(`emishows{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emishows.service=emishows"
       - "traefik.http.services.emishows.loadbalancer.server.port=35000"
     environment:

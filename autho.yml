@@ -7,7 +7,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.autho.rule=HostRegexp(`autho{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.autho.rule=HostRegexp(`autho{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.autho.service=autho"
       - "traefik.http.services.autho.loadbalancer.server.port=24000"
       - "traefik.http.services.autho.loadbalancer.server.scheme=https"

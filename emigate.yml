@@ -8,7 +8,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emigate.rule=HostRegexp(`emigate{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emigate.rule=HostRegexp(`emigate{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emigate.service=emigate"
       - "traefik.http.services.emigate.loadbalancer.server.port=12000"
     environment:

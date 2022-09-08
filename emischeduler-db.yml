@@ -7,7 +7,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emischeduler-db.rule=HostRegexp(`emischeduler-db{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emischeduler-db.rule=HostRegexp(`emischeduler-db{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emischeduler-db.service=emischeduler-db"
       - "traefik.http.services.emischeduler-db.loadbalancer.server.port=32000"
     environment:

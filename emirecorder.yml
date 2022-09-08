@@ -8,7 +8,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emirecorder.rule=HostRegexp(`emirecorder{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emirecorder.rule=HostRegexp(`emirecorder{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emirecorder.service=emirecorder"
       - "traefik.http.services.emirecorder.loadbalancer.server.port=31000"
     environment:

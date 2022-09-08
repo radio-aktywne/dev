@@ -7,7 +7,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.webauth.rule=HostRegexp(`webauth{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.webauth.rule=HostRegexp(`webauth{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.webauth.service=webauth"
       - "traefik.http.services.webauth.loadbalancer.server.port=21000"
     environment:

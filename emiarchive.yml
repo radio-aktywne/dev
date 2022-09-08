@@ -8,10 +8,10 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.emiarchive.rule=HostRegexp(`emiarchive{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emiarchive.rule=HostRegexp(`emiarchive{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emiarchive.service=emiarchive"
       - "traefik.http.services.emiarchive.loadbalancer.server.port=30000"
-      - "traefik.http.routers.emiarchive-admin.rule=HostRegexp(`emiarchive-admin{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.emiarchive-admin.rule=HostRegexp(`emiarchive-admin{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.emiarchive-admin.service=emiarchive-admin"
       - "traefik.http.services.emiarchive-admin.loadbalancer.server.port=30001"
     environment:

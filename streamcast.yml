@@ -7,7 +7,7 @@ services:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.streamcast.rule=HostRegexp(`streamcast{suffix:.*}.${DOMAIN:-localhost}`)"
+      - "traefik.http.routers.streamcast.rule=HostRegexp(`streamcast{suffix:.*}.${DOMAIN:-traefik.me}`)"
       - "traefik.http.routers.streamcast.service=streamcast"
       - "traefik.http.services.streamcast.loadbalancer.server.port=8000"
     environment:
