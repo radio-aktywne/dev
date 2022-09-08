@@ -11,11 +11,18 @@ services:
       - "traefik.http.routers.authe.rule=HostRegexp(`authe{suffix:.*}.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.authe.service=authe"
       - "traefik.http.services.authe.loadbalancer.server.port=23000"
+      - "traefik.http.services.authe.loadbalancer.server.scheme=https"
+      - "traefik.http.services.authe.loadbalancer.serverstransport=authe@file"
       - "traefik.http.routers.authe-admin.rule=HostRegexp(`authe-admin{suffix:.*}.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.authe-admin.service=authe-admin"
       - "traefik.http.services.authe-admin.loadbalancer.server.port=23001"
+      - "traefik.http.services.authe-admin.loadbalancer.server.scheme=https"
+      - "traefik.http.services.authe-admin.loadbalancer.serverstransport=authe-admin@file"
     environment:
       - "AUTHE_DB_ADDRESS=${AUTHE_DB_ADDRESS:-authe-db:22000}"
+      - "AUTHE_DB_PASSWORD=${AUTHE_DB_PASSWORD:-password}"
       - "AUTHE_AUTHGATE_PUBLIC_URL=${AUTHE_AUTHGATE_PUBLIC_URL:-https://authgate.traefik.me}"
       - "AUTHE_COOKIE_DOMAIN=${AUTHE_COOKIE_DOMAIN:-traefik.me}"
       - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://*.traefik.me,https://*.traefik.me}"
+    volumes:
+      - authe-certs:/etc/certs

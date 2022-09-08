@@ -10,8 +10,13 @@ services:
       - "traefik.http.routers.authgate.rule=HostRegexp(`authgate{suffix:.*}.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.authgate.service=authgate"
       - "traefik.http.services.authgate.loadbalancer.server.port=20000"
+      - "traefik.http.services.authgate.loadbalancer.server.scheme=https"
+      - "traefik.http.services.authgate.loadbalancer.serverstransport=authgate@file"
     environment:
       - "AUTHGATE_WEBAUTH_PUBLIC_URL=${AUTHGATE_WEBAUTH_PUBLIC_URL:-https://webauth.traefik.me}"
-      - "AUTHGATE_AUTHE_URL=${AUTHGATE_AUTHE_URL:-http://authe:23000}"
-      - "AUTHGATE_AUTHO_URL=${AUTHGATE_AUTHO_URL:-http://autho:24000}"
+      - "AUTHGATE_AUTHE_URL=${AUTHGATE_AUTHE_URL:-https://authe:23000}"
+      - "AUTHGATE_AUTHO_URL=${AUTHGATE_AUTHO_URL:-https://autho:24000}"
       - "AUTHGATE_TRUSTED_IPS=${AUTHGATE_TRUSTED_IPS:-172.0.0.0/8,192.168.0.0/16,127.0.0.1}"
+    volumes:
+      - authgate-frontend-certs:/etc/certs/frontend/
+      - authgate-backend-certs:/etc/certs/backend/

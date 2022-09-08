@@ -2,17 +2,19 @@ services:
   authe-db:
     image: "${AUTHE_DB_IMAGE:-ghcr.io/radio-aktywne/authe-db}:${AUTHE_DB_TAG:-latest}"
     ports:
-      - "${AUTHE_PUBLISHED_DB_PORT:-22000}:22000"
-      - "${AUTHE_PUBLISHED_DB_ADMIN_PORT:-22001}:22001"
+      - "${AUTHE_DB_PUBLISHED_PORT:-22000}:22000"
+      - "${AUTHE_DB_PUBLISHED_ADMIN_PORT:-22001}:22001"
     extra_hosts:
       - host.docker.internal:host-gateway
     labels:
       - "traefik.enable=true"
-      - "traefik.http.routers.authe-db.rule=HostRegexp(`authe-db{suffix:.*}.${DOMAIN:-localhost}`)"
-      - "traefik.http.routers.authe-db.service=authe-db"
-      - "traefik.http.services.authe-db.loadbalancer.server.port=22000"
       - "traefik.http.routers.authe-db-admin.rule=HostRegexp(`authe-db-admin{suffix:.*}.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.authe-db-admin.service=authe-db-admin"
       - "traefik.http.services.authe-db-admin.loadbalancer.server.port=22001"
+      - "traefik.http.services.authe-db-admin.loadbalancer.server.scheme=https"
+      - "traefik.http.services.authe-db-admin.loadbalancer.serverstransport=authe-db-admin@file"
+    environment:
+      - "AUTHE_DB_PASSWORD=${AUTHE_DB_PASSWORD:-password}"
     volumes:
       - authe-db:/app/cockroach-data
+      - authe-db-certs:/etc/certs/

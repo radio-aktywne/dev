@@ -2,8 +2,8 @@ tls:
   stores:
     default:
       defaultCertificate:
-        certFile: /etc/traefik/ssl/cert.pem
-        keyFile: /etc/traefik/ssl/privkey.pem
+        certFile: /etc/certs/frontend/cert.pem
+        keyFile: /etc/certs/frontend/key.pem
   certificates:
-    - certFile: /etc/traefik/ssl/cert.pem
-      keyFile: /etc/traefik/ssl/privkey.pem
+    - certFile: /etc/certs/frontend/cert.pem
+      keyFile: /etc/certs/frontend/key.pem

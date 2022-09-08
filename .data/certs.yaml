@@ -1,0 +1,77 @@
+path: /etc/certs
+defaultIdentities:
+  - "127.0.0.1"
+  - "localhost"
+  - "*.localhost"
+  - "traefik.me"
+  - "*.traefik.me"
+certs:
+  webauth:
+    type: self-signed
+  emigate-backend:
+    type: self-signed
+  authgate-frontend:
+    type: self-signed
+    server:
+      - identities:
+          - authgate
+  authgate-backend:
+    type: self-signed
+  autho:
+    type: self-signed
+    server:
+      - { }
+  authe:
+    type: self-signed
+    server:
+      - { }
+    client:
+      - identities:
+          - authe
+  authe-db:
+    type: self-signed
+    caFile: ca.crt
+    server:
+      - certFile: node.crt
+        keyFile: node.key
+        identities:
+          - authe-db
+          - node
+      - certFile: ui.crt
+        keyFile: ui.key
+        identities:
+          - authe-db
+          - node
+    client:
+      - certFile: client.root.crt
+        keyFile: client.root.key
+        identities:
+          - root
+  emishows:
+    type: self-signed
+    client:
+      - identities:
+          - emishows
+  emishows-db:
+    type: self-signed
+    caFile: ca.crt
+    server:
+      - certFile: node.crt
+        keyFile: node.key
+        identities:
+          - emishows-db
+          - node
+      - certFile: ui.crt
+        keyFile: ui.key
+        identities:
+          - emishows-db
+          - node
+    client:
+      - certFile: client.root.crt
+        keyFile: client.root.key
+        identities:
+          - root
+  proxy-frontend:
+    type: traefik.me
+  proxy-backend:
+    type: self-signed

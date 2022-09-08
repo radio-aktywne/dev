@@ -3,3 +3,7 @@
 .DS_STORE
 
 .idea/
+
+.data/ca/**
+
+!.gitkeep

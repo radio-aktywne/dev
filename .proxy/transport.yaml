@@ -1,0 +1,14 @@
+http:
+  serversTransports:
+    authgate:
+      serverName: authgate
+    autho:
+      serverName: autho
+    authe:
+      serverName: authe
+    authe-admin:
+      serverName: authe
+    authe-db-admin:
+      serverName: authe-db
+    emishows-db-admin:
+      serverName: emishows-db

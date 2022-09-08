@@ -1,0 +1,22 @@
+services:
+  certifier:
+    image: "${CERTIFIER_IMAGE:-ghcr.io/radio-aktywne/certifier}:${CERTIFIER_TAG:-latest}"
+    command: >-
+      certifier 
+      -c /etc/certifier/config.yaml 
+      -C /etc/certifier/ca/cert.pem 
+      -K /etc/certifier/ca/key.pem
+    volumes:
+      - ./.data/certs.yaml:/etc/certifier/config.yaml
+      - ./.data/ca/:/etc/certifier/ca/
+      - webauth-certs:/etc/certs/webauth/
+      - emigate-backend-certs:/etc/certs/emigate-backend/
+      - authgate-frontend-certs:/etc/certs/authgate-frontend/
+      - authgate-backend-certs:/etc/certs/authgate-backend/
+      - autho-certs:/etc/certs/autho/
+      - authe-certs:/etc/certs/authe/
+      - authe-db-certs:/etc/certs/authe-db/
+      - emishows-certs:/etc/certs/emishows/
+      - emishows-db-certs:/etc/certs/emishows-db/
+      - proxy-frontend-certs:/etc/certs/proxy-frontend/
+      - proxy-backend-certs:/etc/certs/proxy-backend/

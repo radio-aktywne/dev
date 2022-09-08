@@ -18,6 +18,7 @@ services:
     build: "${WEBAUTH_PATH:-./webauth}"
     depends_on:
       - authgate
+      - certifier
 
   emigate:
     extends:
@@ -30,6 +31,7 @@ services:
       - emishows
       - emistream
       - emipass
+      - certifier
 
   authgate:
     extends:
@@ -40,6 +42,7 @@ services:
     depends_on:
       - authe
       - autho
+      - certifier
 
   autho:
     extends:
@@ -49,6 +52,7 @@ services:
     build: "${AUTHO_PATH:-./autho}"
     depends_on:
       - authe
+      - certifier
 
   authe:
     extends:
@@ -58,6 +62,7 @@ services:
     build: "${AUTHE_PATH:-./authe}"
     depends_on:
       - authe-db
+      - certifier
 
   authe-db:
     extends:
@@ -65,6 +70,8 @@ services:
       service: authe-db
     image: "${AUTHE_DB_IMAGE:-radio-aktywne/authe-db}"
     build: "${AUTHE_DB_PATH:-./authe-db}"
+    depends_on:
+      - certifier
 
   emipass:
     extends:
@@ -160,10 +167,18 @@ services:
     image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
     build: "${STREAMCAST_PATH:-./streamcast}"
 
-  # utility services below
+  certifier:
+    extends:
+      file: ./certifier.yml
+      service: certifier
+    image: "${CERTIFIER_IMAGE:-radio-aktywne/certifier}"
+    build: "${CERTIFIER_PATH:-./certifier}"
+
+  # local development utility services below
 
   proxy:
-    image: traefik:v2.8.4
+    image: radio-aktywne-dev/proxy
+    build: ./.proxy
     ports:
       - "80:80"
       - "443:443"
@@ -175,22 +190,25 @@ services:
       - "TRAEFIK_ENTRYPOINTS_HTTPS_HTTP_TLS_DOMAINS_0_SANS=*.${DOMAIN:-traefik.me}"
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock:ro
-      - ./.proxy/:/etc/traefik/
-      - certs:/etc/traefik/ssl/
+      - proxy-frontend-certs:/etc/certs/frontend/
+      - proxy-backend-certs:/etc/certs/backend/
     depends_on:
-      - certs
-
-  certs:
-    image: alpine:3.16.2
-    entrypoint: /entrypoint.sh
-    volumes:
-      - ./.certs/entrypoint.sh:/entrypoint.sh
-      - certs:/etc/my-certs/ssl/
+      - certifier
 
 volumes:
+  webauth-certs:
+  emigate-backend-certs:
+  authgate-frontend-certs:
+  authgate-backend-certs:
+  autho-certs:
+  authe-certs:
   authe-db:
+  authe-db-certs:
   emischeduler-db:
+  emishows-certs:
   emishows-db:
+  emishows-db-certs:
   emitimes:
   emiarchive:
-  certs:
+  proxy-frontend-certs:
+  proxy-backend-certs:

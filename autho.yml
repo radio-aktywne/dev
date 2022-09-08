@@ -10,6 +10,10 @@ services:
       - "traefik.http.routers.autho.rule=HostRegexp(`autho{suffix:.*}.${DOMAIN:-localhost}`)"
       - "traefik.http.routers.autho.service=autho"
       - "traefik.http.services.autho.loadbalancer.server.port=24000"
+      - "traefik.http.services.autho.loadbalancer.server.scheme=https"
+      - "traefik.http.services.autho.loadbalancer.serverstransport=autho@file"
     environment:
-      - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-http://authe:23000}"
+      - "AUTHO_AUTHE_URL=${AUTHO_AUTHE_URL:-https://authe:23000}"
       - "AUTHO_AUTHGATE_PUBLIC_URL=${AUTHO_AUTHGATE_PUBLIC_URL:-https://authgate.traefik.me}"
+    volumes:
+      - autho-certs:/etc/certs

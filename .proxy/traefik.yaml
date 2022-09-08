@@ -14,9 +14,13 @@ entryPoints:
     http:
       tls: { }
 
+serversTransport:
+  rootCAs:
+    - /etc/certs/backend/ca.pem
+
 providers:
   file:
-    directory: /etc/traefik/
+    directory: /app/
     watch: true
   docker:
     exposedByDefault: false

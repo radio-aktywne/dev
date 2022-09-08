@@ -87,3 +87,8 @@
 	path = streamcast
     url = https://github.com/radio-aktywne/streamcast.git
     update = rebase
+
+[submodule "certifier"]
+	path = certifier
+    url = https://github.com/radio-aktywne/certifier.git
+    update = rebase
