@@ -10,6 +10,7 @@ services:
       - "AUTHE_DB_ADDRESS=${AUTHE_DB_ADDRESS:-authe-db:22000}"
       - "AUTHE_DB_PASSWORD=${AUTHE_DB_PASSWORD:-password}"
       - "AUTHE_AUTHGATE_PUBLIC_URL=${AUTHE_AUTHGATE_PUBLIC_URL:-https://authgate.traefik.me}"
+      - "AUTHE_ADMIN_PUBLIC_URL=${AUTHE_ADMIN_PUBLIC_URL:-https://authe-admin.traefik.me}"
       - "AUTHE_COOKIE_DOMAIN=${AUTHE_COOKIE_DOMAIN:-traefik.me}"
       - "AUTHE_ALLOWED_RETURN_URLS=${AUTHE_ALLOWED_RETURN_URLS:-http://*.traefik.me,https://*.traefik.me}"
     volumes:

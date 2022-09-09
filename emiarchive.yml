@@ -7,6 +7,7 @@ services:
     extra_hosts:
       - host.docker.internal:host-gateway
     environment:
+      - "EMIARCHIVE_ADMIN_PUBLIC_URL=${EMIARCHIVE_ADMIN_PUBLIC_URL:-https://emiarchive-admin.traefik.me}"
       - "EMIARCHIVE_ADMIN_USER=${EMIARCHIVE_ADMIN_USER:-admin}"
       - "EMIARCHIVE_ADMIN_PASSWORD=${EMIARCHIVE_ADMIN_PASSWORD:-password}"
       - "EMIARCHIVE_READONLY_USER=${EMIARCHIVE_READONLY_USER:-readonly}"
