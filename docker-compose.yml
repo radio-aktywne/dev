@@ -10,6 +10,16 @@ services:
       - authgate
       - emigate
 
+  authopsy:
+    extends:
+      file: ./authopsy.yml
+      service: authopsy
+    image: "${AUTHOPSY_IMAGE:-radio-aktywne/authopsy}"
+    build: "${AUTHOPSY_PATH:-./authopsy}"
+    depends_on:
+      - authe
+      - certifier
+
   webauth:
     extends:
       file: ./webauth.yml
@@ -184,6 +194,7 @@ services:
     build: "${CERTIFIER_PATH:-./certifier}"
 
 volumes:
+  authopsy-certs:
   webauth-certs:
   emigate-backend-certs:
   authgate-frontend-certs:

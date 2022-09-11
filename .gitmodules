@@ -8,6 +8,11 @@
     url = https://github.com/radio-aktywne/emiweb.git
     update = rebase
 
+[submodule "authopsy"]
+    path = authopsy
+    url = https://github.com/radio-aktywne/authopsy.git
+    update = rebase
+
 [submodule "webauth"]
     path = webauth
     url = https://github.com/radio-aktywne/webauth.git

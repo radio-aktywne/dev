@@ -6,6 +6,8 @@ defaultIdentities:
   - "traefik.me"
   - "*.traefik.me"
 certs:
+  authopsy:
+    type: self-signed
   webauth:
     type: self-signed
   emigate-backend:

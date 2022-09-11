@@ -8,6 +8,7 @@ services:
       -K /etc/certifier/ca/key.pem
     volumes:
       - ./.data/certifier/:/etc/certifier/
+      - authopsy-certs:/etc/certs/authopsy/
       - webauth-certs:/etc/certs/webauth/
       - emigate-backend-certs:/etc/certs/emigate-backend/
       - authgate-frontend-certs:/etc/certs/authgate-frontend/

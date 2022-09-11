@@ -17,6 +17,10 @@ http:
       loadBalancer:
         servers:
           - url: "{{ env "PROXY_EMIWEB_URL" | default "http://emiweb:13000" }}"
+    authopsy:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_AUTHOPSY_URL" | default "http://authopsy:25000" }}"
     webauth:
       loadBalancer:
         servers:
@@ -95,6 +99,9 @@ http:
     emiweb:
       rule: "HostRegexp(`emiweb{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
       service: emiweb
+    authopsy:
+      rule: "HostRegexp(`authopsy{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: authopsy
     webauth:
       rule: "HostRegexp(`webauth{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
       service: webauth

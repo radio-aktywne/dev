@@ -11,6 +11,7 @@ services:
     environment:
       - "PROXY_DOMAIN=${PROXY_DOMAIN:-traefik.me}"
       - "PROXY_EMIWEB_URL=${PROXY_EMIWEB_URL:-http://emiweb:13000}"
+      - "PROXY_AUTHOPSY_URL=${PROXY_AUTHOPSY_URL:-http://authopsy:25000}"
       - "PROXY_WEBAUTH_URL=${PROXY_WEBAUTH_URL:-http://webauth:21000}"
       - "PROXY_EMIGATE_URL=${PROXY_EMIGATE_URL:-http://emigate:12000}"
       - "PROXY_AUTHGATE_URL=${PROXY_AUTHGATE_URL:-https://authgate:20000}"

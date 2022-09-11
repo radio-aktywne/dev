@@ -1,0 +1,12 @@
+services:
+  authopsy:
+    image: "${AUTHOPSY_IMAGE:-ghcr.io/radio-aktywne/authopsy}:${AUTHOPSY_TAG:-latest}"
+    ports:
+      - "${AUTHOPSY_PUBLISHED_PORT:-25000}:25000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "AUTHOPSY_AUTHE_URL=${AUTHOPSY_AUTHE_URL:-https://authe:23000}"
+      - "AUTHOPSY_AUTHE_ADMIN_URL=${AUTHOPSY_AUTHE_ADMIN_URL:-https://authe:23001}"
+    volumes:
+      - authopsy-certs:/etc/certs
