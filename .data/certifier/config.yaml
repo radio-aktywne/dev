@@ -1,5 +1,5 @@
 path: /etc/certs
-defaultIdentities:
+default_identities:
   - "127.0.0.1"
   - "localhost"
   - "*.localhost"
@@ -32,21 +32,21 @@ certs:
           - authe
   authe-db:
     type: self-signed
-    caFile: ca.crt
+    ca_file: ca.crt
     server:
-      - certFile: node.crt
-        keyFile: node.key
+      - cert_file: node.crt
+        key_file: node.key
         identities:
           - authe-db
           - node
-      - certFile: ui.crt
-        keyFile: ui.key
+      - cert_file: ui.crt
+        key_file: ui.key
         identities:
           - authe-db
           - node
     client:
-      - certFile: client.root.crt
-        keyFile: client.root.key
+      - cert_file: client.root.crt
+        key_file: client.root.key
         identities:
           - root
   emishows:
@@ -56,21 +56,21 @@ certs:
           - emishows
   emishows-db:
     type: self-signed
-    caFile: ca.crt
+    ca_file: ca.crt
     server:
-      - certFile: node.crt
-        keyFile: node.key
+      - cert_file: node.crt
+        key_file: node.key
         identities:
           - emishows-db
           - node
-      - certFile: ui.crt
-        keyFile: ui.key
+      - cert_file: ui.crt
+        key_file: ui.key
         identities:
           - emishows-db
           - node
     client:
-      - certFile: client.root.crt
-        keyFile: client.root.key
+      - cert_file: client.root.crt
+        key_file: client.root.key
         identities:
           - root
   proxy-frontend:

@@ -2,10 +2,9 @@ services:
   certifier:
     image: "${CERTIFIER_IMAGE:-ghcr.io/radio-aktywne/certifier}:${CERTIFIER_TAG:-latest}"
     command: >-
-      certifier 
-      -c /etc/certifier/config.yaml 
-      -C /etc/certifier/ca/cert.pem 
-      -K /etc/certifier/ca/key.pem
+      -C /etc/certifier/config.yaml 
+      -c ca_cert=/etc/certifier/ca/cert.pem 
+      -c ca_key=/etc/certifier/ca/key.pem
     volumes:
       - ./.data/certifier/:/etc/certifier/
       - authopsy-certs:/etc/certs/authopsy/
