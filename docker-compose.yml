@@ -99,17 +99,10 @@ services:
     image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
     build: "${EMISCHEDULER_PATH:-./emischeduler}"
     depends_on:
-      - emischeduler-db
       - emishows
       - emistream
       - emiarchive
 
-  emischeduler-db:
-    extends:
-      file: ./emischeduler-db.yml
-      service: emischeduler-db
-    image: "${EMISCHEDULER_DB_IMAGE:-radio-aktywne/emischeduler-db}"
-    build: "${EMISCHEDULER_DB_PATH:-./emischeduler-db}"
 
   emishows:
     extends:
@@ -203,7 +196,7 @@ volumes:
   authe-certs:
   authe-db:
   authe-db-certs:
-  emischeduler-db:
+  emischeduler:
   emishows-certs:
   emishows-db:
   emishows-db-certs:
