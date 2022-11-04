@@ -7,10 +7,20 @@ production and development.
 
 ## Quickstart
 
-To run all services locally:
+First build all the images:
 
 ```sh
-docker-compose up --build
+docker compose config --services | xargs -n1 docker compose build
+```
+
+This explicitly builds all images sequentially (only one at a time)
+to avoid frequent network errors when building everything in parallel.
+Be patient, it might take a while.
+
+Then start the services:
+
+```sh
+docker compose up
 ```
 
 ## Accessing services
@@ -71,13 +81,13 @@ There are two major ways to run the services:
 - Running all services from local sources:
 
   ```sh
-  docker-compose up --build
+  docker compose up
   ```
 
 - Running selected services (e.g. `streamcast`, `fusion`) from upstream images:
 
   ```sh
-  docker-compose -f streamcast.yml -f fusion.yml up
+  docker compose -f streamcast.yml -f fusion.yml up
   ```
 
 Note: running from local sources should only be used for local development.
