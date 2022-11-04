@@ -58,6 +58,10 @@ http:
       loadBalancer:
         servers:
           - url: "{{ env "PROXY_EMIPASS_URL" | default "http://emipass:11000" }}"
+    webscheduler:
+      loadBalancer:
+        servers:
+          - url: "{{ env "PROXY_WEBSCHEDULER_URL" | default "http://webscheduler:32000" }}"
     emischeduler:
       loadBalancer:
         servers:
@@ -126,6 +130,9 @@ http:
     emipass:
       rule: "HostRegexp(`emipass{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
       service: emipass
+    webscheduler:
+      rule: "HostRegexp(`webscheduler{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
+      service: webscheduler
     emischeduler:
       rule: "HostRegexp(`emischeduler{suffix:.*}.{{ env "PROXY_DOMAIN" | default "traefik.me" }}`)"
       service: emischeduler

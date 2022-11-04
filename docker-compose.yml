@@ -92,6 +92,15 @@ services:
     depends_on:
       - emistream
 
+  webscheduler:
+    extends:
+      file: ./webscheduler.yml
+      service: webscheduler
+    image: "${WEBSCHEDULER_IMAGE:-radio-aktywne/webscheduler}"
+    build: "${WEBSCHEDULER_PATH:-./webscheduler}"
+    depends_on:
+      - emischeduler
+
   emischeduler:
     extends:
       file: ./emischeduler.yml
@@ -102,7 +111,6 @@ services:
       - emishows
       - emistream
       - emiarchive
-
 
   emishows:
     extends:

@@ -1,0 +1,9 @@
+services:
+  webscheduler:
+    image: "${WEBSCHEDULER_IMAGE:-ghcr.io/radio-aktywne/webscheduler}:${WEBSCHEDULER_TAG:-latest}"
+    ports:
+      - "${WEBSCHEDULER_PUBLISHED_PORT:-32000}:32000"
+    extra_hosts:
+      - host.docker.internal:host-gateway
+    environment:
+      - "WEBSCHEDULER_EMISCHEDULER_URL=${WEBSCHEDULER_EMISCHEDULER_URL:-http://emischeduler:33000}"

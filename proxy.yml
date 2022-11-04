@@ -21,6 +21,7 @@ services:
       - "PROXY_AUTHE_DB_ADDRESS=${PROXY_AUTHE_DB_ADDRESS:-authe-db:22000}"
       - "PROXY_AUTHE_DB_ADMIN_URL=${PROXY_AUTHE_DB_ADMIN_URL:-https://authe-db:22001}"
       - "PROXY_EMIPASS_URL=${PROXY_EMIPASS_URL:-http://host.docker.internal:11000}"
+      - "PROXY_WEBSCHEDULER_URL=${PROXY_WEBSCHEDULER_URL:-http://webscheduler:32000}"
       - "PROXY_EMISCHEDULER_URL=${PROXY_EMISCHEDULER_URL:-http://emischeduler:33000}"
       - "PROXY_EMISHOWS_URL=${PROXY_EMISHOWS_URL:-http://emishows:35000}"
       - "PROXY_EMISHOWS_DB_ADMIN_URL=${PROXY_EMISHOWS_DB_ADMIN_URL:-https://emishows-db:34001}"

@@ -48,6 +48,11 @@
     url = https://github.com/radio-aktywne/emipass.git
     update = rebase
 
+[submodule "webscheduler"]
+    path = webscheduler
+    url = https://github.com/radio-aktywne/webscheduler.git
+    update = rebase
+
 [submodule "emischeduler"]
     path = emischeduler
     url = https://github.com/radio-aktywne/emischeduler.git
