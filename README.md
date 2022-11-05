@@ -2,8 +2,8 @@
 
 composefiles 🐋
 
-This repository consists of composefiles for all our services ready for both
-production and development.
+This repository consists of composefiles
+for all our services for local development.
 
 ## Quickstart
 
@@ -84,13 +84,13 @@ There are two major ways to run the services:
   docker compose up
   ```
 
-- Running selected services (e.g. `streamcast`, `fusion`) from upstream images:
+- Running all services from remote sources:
 
   ```sh
-  docker compose -f streamcast.yml -f fusion.yml up
+  docker compose -f docker-compose.remote.yml up
   ```
 
-Note: running from local sources should only be used for local development.
+Note: Both ways should only be used for local development.
 
 ## Submodules
 

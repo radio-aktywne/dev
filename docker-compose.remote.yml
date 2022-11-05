@@ -1,0 +1,172 @@
+services:
+  emiweb:
+    extends:
+      file: ./emiweb.yml
+      service: emiweb
+    depends_on:
+      - webauth
+      - authgate
+      - emigate
+
+  authopsy:
+    extends:
+      file: ./authopsy.yml
+      service: authopsy
+    depends_on:
+      - authe
+      - certifier
+
+  webauth:
+    extends:
+      file: ./webauth.yml
+      service: webauth
+    depends_on:
+      - authgate
+      - certifier
+
+  emigate:
+    extends:
+      file: ./emigate.yml
+      service: emigate
+    depends_on:
+      - authgate
+      - emishows
+      - emistream
+      - emipass
+      - certifier
+
+  authgate:
+    extends:
+      file: ./authgate.yml
+      service: authgate
+    depends_on:
+      - authe
+      - autho
+      - certifier
+
+  autho:
+    extends:
+      file: ./autho.yml
+      service: autho
+    depends_on:
+      - authe
+      - certifier
+
+  authe:
+    extends:
+      file: ./authe.yml
+      service: authe
+    depends_on:
+      - authe-db
+      - certifier
+
+  authe-db:
+    extends:
+      file: ./authe-db.yml
+      service: authe-db
+    depends_on:
+      - certifier
+
+  emipass:
+    extends:
+      file: ./emipass.yml
+      service: emipass
+    depends_on:
+      - emistream
+
+  webscheduler:
+    extends:
+      file: ./webscheduler.yml
+      service: webscheduler
+    depends_on:
+      - emischeduler
+
+  emischeduler:
+    extends:
+      file: ./emischeduler.yml
+      service: emischeduler
+    depends_on:
+      - emishows
+      - emistream
+      - emiarchive
+
+  emishows:
+    extends:
+      file: ./emishows.yml
+      service: emishows
+    depends_on:
+      - emishows-db
+      - emitimes
+
+  emishows-db:
+    extends:
+      file: ./emishows-db.yml
+      service: emishows-db
+
+  emitimes:
+    extends:
+      file: ./emitimes.yml
+      service: emitimes
+
+  emistream:
+    extends:
+      file: ./emistream.yml
+      service: emistream
+    depends_on:
+      - emirecorder
+      - fusion
+
+  emirecorder:
+    extends:
+      file: ./emirecorder.yml
+      service: emirecorder
+    depends_on:
+      - emiarchive
+
+  emiarchive:
+    extends:
+      file: ./emiarchive.yml
+      service: emiarchive
+
+  fusion:
+    extends:
+      file: ./fusion.yml
+      service: fusion
+    depends_on:
+      - streamcast
+
+  streamcast:
+    extends:
+      file: ./streamcast.yml
+      service: streamcast
+
+  proxy:
+    extends:
+      file: ./proxy.yml
+      service: proxy
+    depends_on:
+      - certifier
+
+  certifier:
+    extends:
+      file: ./certifier.yml
+      service: certifier
+
+volumes:
+  authopsy-certs:
+  webauth-certs:
+  emigate-backend-certs:
+  authgate-frontend-certs:
+  authgate-backend-certs:
+  autho-certs:
+  authe-certs:
+  authe-db:
+  authe-db-certs:
+  emischeduler:
+  emishows-certs:
+  emishows-db:
+  emishows-db-certs:
+  emitimes:
+  emiarchive:
+  proxy-frontend-certs:
+  proxy-backend-certs:
