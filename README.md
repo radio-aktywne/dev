@@ -6,7 +6,13 @@ This repository consists of files useful for local development.
 
 ## Quickstart
 
-First build all the images:
+First go into the `docker` directory:
+
+```sh
+cd docker
+```
+
+Build all images with:
 
 ```sh
 docker compose config --services | xargs -n1 docker compose build
@@ -16,7 +22,7 @@ This explicitly builds all images sequentially (only one at a time)
 to avoid frequent network errors when building everything in parallel.
 Be patient, it might take a while.
 
-Then start the services:
+Then you can start the services with:
 
 ```sh
 docker compose up
@@ -80,13 +86,13 @@ There are two major ways to run the services:
 - Running all services from local sources:
 
   ```sh
-  docker compose up
+  cd docker && docker compose up
   ```
 
 - Running all services from remote sources:
 
   ```sh
-  docker compose -f docker-compose.remote.yaml up
+  cd docker && docker compose -f docker-compose.remote.yaml up
   ```
 
 Note: Both ways should only be used for local development.

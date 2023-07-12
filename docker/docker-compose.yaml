@@ -4,7 +4,7 @@ services:
       file: ./emiweb.yaml
       service: emiweb
     image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"
-    build: "${EMIWEB_PATH:-./emiweb}"
+    build: "${EMIWEB_PATH:-../apps/emiweb}"
     depends_on:
       - webauth
       - authgate
@@ -15,7 +15,7 @@ services:
       file: ./authopsy.yaml
       service: authopsy
     image: "${AUTHOPSY_IMAGE:-radio-aktywne/authopsy}"
-    build: "${AUTHOPSY_PATH:-./authopsy}"
+    build: "${AUTHOPSY_PATH:-../apps/authopsy}"
     depends_on:
       - authe
       - certifier
@@ -25,7 +25,7 @@ services:
       file: ./webauth.yaml
       service: webauth
     image: "${WEBAUTH_IMAGE:-radio-aktywne/webauth}"
-    build: "${WEBAUTH_PATH:-./webauth}"
+    build: "${WEBAUTH_PATH:-../apps/webauth}"
     depends_on:
       - authgate
       - certifier
@@ -35,7 +35,7 @@ services:
       file: ./emigate.yaml
       service: emigate
     image: "${EMIGATE_IMAGE:-radio-aktywne/emigate}"
-    build: "${EMIGATE_PATH:-./emigate}"
+    build: "${EMIGATE_PATH:-../apps/emigate}"
     depends_on:
       - authgate
       - emishows
@@ -48,7 +48,7 @@ services:
       file: ./authgate.yaml
       service: authgate
     image: "${AUTHGATE_IMAGE:-radio-aktywne/authgate}"
-    build: "${AUTHGATE_PATH:-./authgate}"
+    build: "${AUTHGATE_PATH:-../apps/authgate}"
     depends_on:
       - authe
       - autho
@@ -59,7 +59,7 @@ services:
       file: ./autho.yaml
       service: autho
     image: "${AUTHO_IMAGE:-radio-aktywne/autho}"
-    build: "${AUTHO_PATH:-./autho}"
+    build: "${AUTHO_PATH:-../apps/autho}"
     depends_on:
       - authe
       - certifier
@@ -69,7 +69,7 @@ services:
       file: ./authe.yaml
       service: authe
     image: "${AUTHE_IMAGE:-radio-aktywne/authe}"
-    build: "${AUTHE_PATH:-./authe}"
+    build: "${AUTHE_PATH:-../apps/authe}"
     depends_on:
       - authe-db
       - certifier
@@ -79,7 +79,7 @@ services:
       file: ./authe-db.yaml
       service: authe-db
     image: "${AUTHE_DB_IMAGE:-radio-aktywne/authe-db}"
-    build: "${AUTHE_DB_PATH:-./authe-db}"
+    build: "${AUTHE_DB_PATH:-../apps/authe-db}"
     depends_on:
       - certifier
 
@@ -88,7 +88,7 @@ services:
       file: ./emipass.yaml
       service: emipass
     image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
-    build: "${EMIPASS_PATH:-./emipass}"
+    build: "${EMIPASS_PATH:-../apps/emipass}"
     depends_on:
       - emistream
 
@@ -97,7 +97,7 @@ services:
       file: ./webscheduler.yaml
       service: webscheduler
     image: "${WEBSCHEDULER_IMAGE:-radio-aktywne/webscheduler}"
-    build: "${WEBSCHEDULER_PATH:-./webscheduler}"
+    build: "${WEBSCHEDULER_PATH:-../apps/webscheduler}"
     depends_on:
       - emischeduler
 
@@ -106,7 +106,7 @@ services:
       file: ./emischeduler.yaml
       service: emischeduler
     image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
-    build: "${EMISCHEDULER_PATH:-./emischeduler}"
+    build: "${EMISCHEDULER_PATH:-../apps/emischeduler}"
     depends_on:
       - emishows
       - emistream
@@ -117,7 +117,7 @@ services:
       file: ./emishows.yaml
       service: emishows
     image: "${EMISHOWS_IMAGE:-radio-aktywne/emishows}"
-    build: "${EMISHOWS_PATH:-./emishows}"
+    build: "${EMISHOWS_PATH:-../apps/emishows}"
     depends_on:
       - emishows-db
       - emitimes
@@ -127,21 +127,21 @@ services:
       file: ./emishows-db.yaml
       service: emishows-db
     image: "${EMISHOWS_DB_IMAGE:-radio-aktywne/emishows-db}"
-    build: "${EMISHOWS_DB_PATH:-./emishows-db}"
+    build: "${EMISHOWS_DB_PATH:-../apps/emishows-db}"
 
   emitimes:
     extends:
       file: ./emitimes.yaml
       service: emitimes
     image: "${EMITIMES_IMAGE:-radio-aktywne/emitimes}"
-    build: "${EMITIMES_PATH:-./emitimes}"
+    build: "${EMITIMES_PATH:-../apps/emitimes}"
 
   emistream:
     extends:
       file: ./emistream.yaml
       service: emistream
     image: "${EMISTREAM_IMAGE:-radio-aktywne/emistream}"
-    build: "${EMISTREAM_PATH:-./emistream}"
+    build: "${EMISTREAM_PATH:-../apps/emistream}"
     depends_on:
       - emirecorder
       - fusion
@@ -151,7 +151,7 @@ services:
       file: ./emirecorder.yaml
       service: emirecorder
     image: "${EMIRECORDER_IMAGE:-radio-aktywne/emirecorder}"
-    build: "${EMIRECORDER_PATH:-./emirecorder}"
+    build: "${EMIRECORDER_PATH:-../apps/emirecorder}"
     depends_on:
       - emiarchive
 
@@ -160,14 +160,14 @@ services:
       file: ./emiarchive.yaml
       service: emiarchive
     image: "${EMIARCHIVE_IMAGE:-radio-aktywne/emiarchive}"
-    build: "${EMIARCHIVE_PATH:-./emiarchive}"
+    build: "${EMIARCHIVE_PATH:-../apps/emiarchive}"
 
   fusion:
     extends:
       file: ./fusion.yaml
       service: fusion
     image: "${FUSION_IMAGE:-radio-aktywne/fusion}"
-    build: "${FUSION_PATH:-./fusion}"
+    build: "${FUSION_PATH:-../apps/fusion}"
     depends_on:
       - streamcast
 
@@ -176,14 +176,14 @@ services:
       file: ./streamcast.yaml
       service: streamcast
     image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
-    build: "${STREAMCAST_PATH:-./streamcast}"
+    build: "${STREAMCAST_PATH:-../apps/streamcast}"
 
   proxy:
     extends:
       file: ./proxy.yaml
       service: proxy
     image: "${PROXY_IMAGE:-radio-aktywne/proxy}"
-    build: "${PROXY_PATH:-./proxy}"
+    build: "${PROXY_PATH:-../apps/proxy}"
     depends_on:
       - certifier
 
@@ -192,7 +192,7 @@ services:
       file: ./certifier.yaml
       service: certifier
     image: "${CERTIFIER_IMAGE:-radio-aktywne/certifier}"
-    build: "${CERTIFIER_PATH:-./certifier}"
+    build: "${CERTIFIER_PATH:-../apps/certifier}"
 
 volumes:
   authopsy-certs:

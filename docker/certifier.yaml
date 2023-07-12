@@ -6,7 +6,7 @@ services:
       -c ca_cert=/etc/certifier/ca/cert.pem 
       -c ca_key=/etc/certifier/ca/key.pem
     volumes:
-      - ./.data/certifier/:/etc/certifier/
+      - ../.data/certifier/:/etc/certifier/
       - authopsy-certs:/etc/certs/authopsy/
       - webauth-certs:/etc/certs/webauth/
       - emigate-backend-certs:/etc/certs/emigate-backend/

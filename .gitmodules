@@ -1,104 +1,104 @@
-[submodule "proxy"]
-	path = proxy
+[submodule "apps/proxy"]
+	path = apps/proxy
     url = git@github.com:radio-aktywne/proxy.git
     update = rebase
 
-[submodule "emiweb"]
-    path = emiweb
+[submodule "apps/emiweb"]
+	path = apps/emiweb
     url = git@github.com:radio-aktywne/emiweb.git
     update = rebase
 
-[submodule "authopsy"]
-    path = authopsy
+[submodule "apps/authopsy"]
+	path = apps/authopsy
     url = git@github.com:radio-aktywne/authopsy.git
     update = rebase
 
-[submodule "webauth"]
-    path = webauth
+[submodule "apps/webauth"]
+	path = apps/webauth
     url = git@github.com:radio-aktywne/webauth.git
     update = rebase
 
-[submodule "emigate"]
-    path = emigate
+[submodule "apps/emigate"]
+	path = apps/emigate
     url = git@github.com:radio-aktywne/emigate.git
     update = rebase
 
-[submodule "authgate"]
-    path = authgate
+[submodule "apps/authgate"]
+	path = apps/authgate
     url = git@github.com:radio-aktywne/authgate.git
     update = rebase
 
-[submodule "autho"]
-    path = autho
+[submodule "apps/autho"]
+	path = apps/autho
     url = git@github.com:radio-aktywne/autho.git
     update = rebase
 
-[submodule "authe"]
-    path = authe
+[submodule "apps/authe"]
+	path = apps/authe
     url = git@github.com:radio-aktywne/authe.git
     update = rebase
 
-[submodule "authe-db"]
-    path = authe-db
+[submodule "apps/authe-db"]
+	path = apps/authe-db
     url = git@github.com:radio-aktywne/authe-db.git
     update = rebase
 
-[submodule "emipass"]
-    path = emipass
+[submodule "apps/emipass"]
+	path = apps/emipass
     url = git@github.com:radio-aktywne/emipass.git
     update = rebase
 
-[submodule "webscheduler"]
-    path = webscheduler
+[submodule "apps/webscheduler"]
+	path = apps/webscheduler
     url = git@github.com:radio-aktywne/webscheduler.git
     update = rebase
 
-[submodule "emischeduler"]
-    path = emischeduler
+[submodule "apps/emischeduler"]
+	path = apps/emischeduler
     url = git@github.com:radio-aktywne/emischeduler.git
     update = rebase
 
-[submodule "emishows"]
-    path = emishows
+[submodule "apps/emishows"]
+	path = apps/emishows
     url = git@github.com:radio-aktywne/emishows.git
     update = rebase
 
-[submodule "emishows-db"]
-    path = emishows-db
+[submodule "apps/emishows-db"]
+	path = apps/emishows-db
     url = git@github.com:radio-aktywne/emishows-db.git
     update = rebase
 
-[submodule "emitimes"]
-    path = emitimes
+[submodule "apps/emitimes"]
+	path = apps/emitimes
     url = git@github.com:radio-aktywne/emitimes.git
     update = rebase
 
-[submodule "emistream"]
-    path = emistream
+[submodule "apps/emistream"]
+	path = apps/emistream
     url = git@github.com:radio-aktywne/emistream.git
     update = rebase
 
-[submodule "emirecorder"]
-    path = emirecorder
+[submodule "apps/emirecorder"]
+	path = apps/emirecorder
     url = git@github.com:radio-aktywne/emirecorder.git
     update = rebase
 
-[submodule "emiarchive"]
-    path = emiarchive
+[submodule "apps/emiarchive"]
+	path = apps/emiarchive
     url = git@github.com:radio-aktywne/emiarchive.git
     update = rebase
 
-[submodule "fusion"]
-    path = fusion
+[submodule "apps/fusion"]
+	path = apps/fusion
     url = git@github.com:radio-aktywne/fusion.git
     update = rebase
 
-[submodule "streamcast"]
-	path = streamcast
+[submodule "apps/streamcast"]
+	path = apps/streamcast
     url = git@github.com:radio-aktywne/streamcast.git
     update = rebase
 
-[submodule "certifier"]
-	path = certifier
+[submodule "apps/certifier"]
+	path = apps/certifier
     url = git@github.com:radio-aktywne/certifier.git
     update = rebase
