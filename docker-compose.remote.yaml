@@ -1,7 +1,7 @@
 services:
   emiweb:
     extends:
-      file: ./emiweb.yml
+      file: ./emiweb.yaml
       service: emiweb
     depends_on:
       - webauth
@@ -10,7 +10,7 @@ services:
 
   authopsy:
     extends:
-      file: ./authopsy.yml
+      file: ./authopsy.yaml
       service: authopsy
     depends_on:
       - authe
@@ -18,7 +18,7 @@ services:
 
   webauth:
     extends:
-      file: ./webauth.yml
+      file: ./webauth.yaml
       service: webauth
     depends_on:
       - authgate
@@ -26,7 +26,7 @@ services:
 
   emigate:
     extends:
-      file: ./emigate.yml
+      file: ./emigate.yaml
       service: emigate
     depends_on:
       - authgate
@@ -37,7 +37,7 @@ services:
 
   authgate:
     extends:
-      file: ./authgate.yml
+      file: ./authgate.yaml
       service: authgate
     depends_on:
       - authe
@@ -46,7 +46,7 @@ services:
 
   autho:
     extends:
-      file: ./autho.yml
+      file: ./autho.yaml
       service: autho
     depends_on:
       - authe
@@ -54,7 +54,7 @@ services:
 
   authe:
     extends:
-      file: ./authe.yml
+      file: ./authe.yaml
       service: authe
     depends_on:
       - authe-db
@@ -62,28 +62,28 @@ services:
 
   authe-db:
     extends:
-      file: ./authe-db.yml
+      file: ./authe-db.yaml
       service: authe-db
     depends_on:
       - certifier
 
   emipass:
     extends:
-      file: ./emipass.yml
+      file: ./emipass.yaml
       service: emipass
     depends_on:
       - emistream
 
   webscheduler:
     extends:
-      file: ./webscheduler.yml
+      file: ./webscheduler.yaml
       service: webscheduler
     depends_on:
       - emischeduler
 
   emischeduler:
     extends:
-      file: ./emischeduler.yml
+      file: ./emischeduler.yaml
       service: emischeduler
     depends_on:
       - emishows
@@ -92,7 +92,7 @@ services:
 
   emishows:
     extends:
-      file: ./emishows.yml
+      file: ./emishows.yaml
       service: emishows
     depends_on:
       - emishows-db
@@ -100,17 +100,17 @@ services:
 
   emishows-db:
     extends:
-      file: ./emishows-db.yml
+      file: ./emishows-db.yaml
       service: emishows-db
 
   emitimes:
     extends:
-      file: ./emitimes.yml
+      file: ./emitimes.yaml
       service: emitimes
 
   emistream:
     extends:
-      file: ./emistream.yml
+      file: ./emistream.yaml
       service: emistream
     depends_on:
       - emirecorder
@@ -118,38 +118,38 @@ services:
 
   emirecorder:
     extends:
-      file: ./emirecorder.yml
+      file: ./emirecorder.yaml
       service: emirecorder
     depends_on:
       - emiarchive
 
   emiarchive:
     extends:
-      file: ./emiarchive.yml
+      file: ./emiarchive.yaml
       service: emiarchive
 
   fusion:
     extends:
-      file: ./fusion.yml
+      file: ./fusion.yaml
       service: fusion
     depends_on:
       - streamcast
 
   streamcast:
     extends:
-      file: ./streamcast.yml
+      file: ./streamcast.yaml
       service: streamcast
 
   proxy:
     extends:
-      file: ./proxy.yml
+      file: ./proxy.yaml
       service: proxy
     depends_on:
       - certifier
 
   certifier:
     extends:
-      file: ./certifier.yml
+      file: ./certifier.yaml
       service: certifier
 
 volumes:

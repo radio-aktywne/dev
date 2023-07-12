@@ -1,9 +1,8 @@
-# reactor
+# dev
 
-composefiles 🐋
+development 💻 
 
-This repository consists of composefiles
-for all our services for local development.
+This repository consists of files useful for local development.
 
 ## Quickstart
 
@@ -70,8 +69,8 @@ but you will need to provide your own certificates to use TLS.
 All services have their own directory with submodule ref pointing to the service
 repository.
 
-`.yml` files named after each service can be used for production on their own.
-`docker-compose.yml` can be used for local development as it aggregates all
+`.yaml` files named after each service can be used for production on their own.
+`docker-compose.yaml` can be used for local development as it aggregates all
 services and builds them from local sources.
 
 ## Usage
@@ -87,7 +86,7 @@ There are two major ways to run the services:
 - Running all services from remote sources:
 
   ```sh
-  docker compose -f docker-compose.remote.yml up
+  docker compose -f docker-compose.remote.yaml up
   ```
 
 Note: Both ways should only be used for local development.

@@ -1,11 +1,9 @@
+# Env files
 .env
 
+# Misc
 .DS_STORE
+.todo
 
-.idea/
-
-.data/certifier/ca/**
-
+# Don't ignore .gitkeep files
 !.gitkeep
-
-TODO

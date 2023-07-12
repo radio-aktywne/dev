@@ -1,7 +1,7 @@
 services:
   emiweb:
     extends:
-      file: ./emiweb.yml
+      file: ./emiweb.yaml
       service: emiweb
     image: "${EMIWEB_IMAGE:-radio-aktywne/emiweb}"
     build: "${EMIWEB_PATH:-./emiweb}"
@@ -12,7 +12,7 @@ services:
 
   authopsy:
     extends:
-      file: ./authopsy.yml
+      file: ./authopsy.yaml
       service: authopsy
     image: "${AUTHOPSY_IMAGE:-radio-aktywne/authopsy}"
     build: "${AUTHOPSY_PATH:-./authopsy}"
@@ -22,7 +22,7 @@ services:
 
   webauth:
     extends:
-      file: ./webauth.yml
+      file: ./webauth.yaml
       service: webauth
     image: "${WEBAUTH_IMAGE:-radio-aktywne/webauth}"
     build: "${WEBAUTH_PATH:-./webauth}"
@@ -32,7 +32,7 @@ services:
 
   emigate:
     extends:
-      file: ./emigate.yml
+      file: ./emigate.yaml
       service: emigate
     image: "${EMIGATE_IMAGE:-radio-aktywne/emigate}"
     build: "${EMIGATE_PATH:-./emigate}"
@@ -45,7 +45,7 @@ services:
 
   authgate:
     extends:
-      file: ./authgate.yml
+      file: ./authgate.yaml
       service: authgate
     image: "${AUTHGATE_IMAGE:-radio-aktywne/authgate}"
     build: "${AUTHGATE_PATH:-./authgate}"
@@ -56,7 +56,7 @@ services:
 
   autho:
     extends:
-      file: ./autho.yml
+      file: ./autho.yaml
       service: autho
     image: "${AUTHO_IMAGE:-radio-aktywne/autho}"
     build: "${AUTHO_PATH:-./autho}"
@@ -66,7 +66,7 @@ services:
 
   authe:
     extends:
-      file: ./authe.yml
+      file: ./authe.yaml
       service: authe
     image: "${AUTHE_IMAGE:-radio-aktywne/authe}"
     build: "${AUTHE_PATH:-./authe}"
@@ -76,7 +76,7 @@ services:
 
   authe-db:
     extends:
-      file: ./authe-db.yml
+      file: ./authe-db.yaml
       service: authe-db
     image: "${AUTHE_DB_IMAGE:-radio-aktywne/authe-db}"
     build: "${AUTHE_DB_PATH:-./authe-db}"
@@ -85,7 +85,7 @@ services:
 
   emipass:
     extends:
-      file: ./emipass.yml
+      file: ./emipass.yaml
       service: emipass
     image: "${EMIPASS_IMAGE:-radio-aktywne/emipass}"
     build: "${EMIPASS_PATH:-./emipass}"
@@ -94,7 +94,7 @@ services:
 
   webscheduler:
     extends:
-      file: ./webscheduler.yml
+      file: ./webscheduler.yaml
       service: webscheduler
     image: "${WEBSCHEDULER_IMAGE:-radio-aktywne/webscheduler}"
     build: "${WEBSCHEDULER_PATH:-./webscheduler}"
@@ -103,7 +103,7 @@ services:
 
   emischeduler:
     extends:
-      file: ./emischeduler.yml
+      file: ./emischeduler.yaml
       service: emischeduler
     image: "${EMISCHEDULER_IMAGE:-radio-aktywne/emischeduler}"
     build: "${EMISCHEDULER_PATH:-./emischeduler}"
@@ -114,7 +114,7 @@ services:
 
   emishows:
     extends:
-      file: ./emishows.yml
+      file: ./emishows.yaml
       service: emishows
     image: "${EMISHOWS_IMAGE:-radio-aktywne/emishows}"
     build: "${EMISHOWS_PATH:-./emishows}"
@@ -124,21 +124,21 @@ services:
 
   emishows-db:
     extends:
-      file: ./emishows-db.yml
+      file: ./emishows-db.yaml
       service: emishows-db
     image: "${EMISHOWS_DB_IMAGE:-radio-aktywne/emishows-db}"
     build: "${EMISHOWS_DB_PATH:-./emishows-db}"
 
   emitimes:
     extends:
-      file: ./emitimes.yml
+      file: ./emitimes.yaml
       service: emitimes
     image: "${EMITIMES_IMAGE:-radio-aktywne/emitimes}"
     build: "${EMITIMES_PATH:-./emitimes}"
 
   emistream:
     extends:
-      file: ./emistream.yml
+      file: ./emistream.yaml
       service: emistream
     image: "${EMISTREAM_IMAGE:-radio-aktywne/emistream}"
     build: "${EMISTREAM_PATH:-./emistream}"
@@ -148,7 +148,7 @@ services:
 
   emirecorder:
     extends:
-      file: ./emirecorder.yml
+      file: ./emirecorder.yaml
       service: emirecorder
     image: "${EMIRECORDER_IMAGE:-radio-aktywne/emirecorder}"
     build: "${EMIRECORDER_PATH:-./emirecorder}"
@@ -157,14 +157,14 @@ services:
 
   emiarchive:
     extends:
-      file: ./emiarchive.yml
+      file: ./emiarchive.yaml
       service: emiarchive
     image: "${EMIARCHIVE_IMAGE:-radio-aktywne/emiarchive}"
     build: "${EMIARCHIVE_PATH:-./emiarchive}"
 
   fusion:
     extends:
-      file: ./fusion.yml
+      file: ./fusion.yaml
       service: fusion
     image: "${FUSION_IMAGE:-radio-aktywne/fusion}"
     build: "${FUSION_PATH:-./fusion}"
@@ -173,14 +173,14 @@ services:
 
   streamcast:
     extends:
-      file: ./streamcast.yml
+      file: ./streamcast.yaml
       service: streamcast
     image: "${STREAMCAST_IMAGE:-radio-aktywne/streamcast}"
     build: "${STREAMCAST_PATH:-./streamcast}"
 
   proxy:
     extends:
-      file: ./proxy.yml
+      file: ./proxy.yaml
       service: proxy
     image: "${PROXY_IMAGE:-radio-aktywne/proxy}"
     build: "${PROXY_PATH:-./proxy}"
@@ -189,7 +189,7 @@ services:
 
   certifier:
     extends:
-      file: ./certifier.yml
+      file: ./certifier.yaml
       service: certifier
     image: "${CERTIFIER_IMAGE:-radio-aktywne/certifier}"
     build: "${CERTIFIER_PATH:-./certifier}"
